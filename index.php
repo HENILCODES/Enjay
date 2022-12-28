@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="en">
 
@@ -31,6 +34,19 @@
         <li class="nav-item">
           <a href="add.php" class="nav-link "> add </a>
         </li>
+        <li class="nav-item">
+          <?php
+          if (isset($_SESSION['Active_Email'])) {
+          ?>
+            <a href="PHP/logout.php?logout=true" class="nav-link "> Log Out </a>
+          <?php
+          } else {
+          ?>
+            <a href="login.php" class="nav-link "> Log in </a>
+          <?php
+          }
+          ?>
+        </li>
       </ul>
     </div>
   </nav>
@@ -52,7 +68,13 @@
         <th>Date of Birth</th>
         <th>Website</th>
         <th>Photo</th>
-        <th>Opreation</th>
+        <?php
+        if (isset($_SESSION['Active_Email'])) {
+        ?>
+          <th>Opreation</th>
+        <?php
+        }
+        ?>
       </thead>
       <tbody>
         <?php
@@ -78,10 +100,16 @@
             <td> <?php echo $row['S_DOB']; ?></td>
             <td> <a href="<?php echo $row['S_WEBSITE']; ?>" target="_blank"><?php echo $row['S_WEBSITE']; ?></a></td>
             <td class="text-center"> <img class="Img" src="upload/<?php echo $row['S_PHOTO']; ?>" alt="<?php echo $row['S_PHOTO']; ?>"></td>
-            <td>
-              <a class="btn btn-success bi bi-pencil-square" href="PHP/updateForm.php?updateId=<?php echo $row['SPID']; ?>"></a>
-              <a class="btn btn-danger bi bi-trash3-fill" href="PHP/delete.php?deleteData=<?php echo $row['SPID']; ?>"></a>
-            </td>
+            <?php
+            if (isset($_SESSION['Active_Email'])) {
+            ?>
+              <td>
+                <a class="btn btn-success bi bi-pencil-square" href="PHP/updateForm.php?updateId=<?php echo $row['SPID']; ?>"></a>
+                <a class="btn btn-danger bi bi-trash3-fill" href="PHP/delete.php?deleteData=<?php echo $row['SPID']; ?>"></a>
+              </td>
+            <?php
+            }
+            ?>
           </tr>
         <?php
         }

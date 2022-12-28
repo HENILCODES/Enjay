@@ -23,7 +23,7 @@ if (isset($_REQUEST['updateId'])) {
         $email = $row['S_EMAIL'];
         $contact = $row['S_CONTACT'];
         $semester = $row['S_SEM'];
-        $hobby = explode(" , ",$row['S_HOBBY']);
+        $hobby = explode(" , ", $row['S_HOBBY']);
         $gender = $row['S_GENDER'];
         $color = $row['S_FAV_COLOR'];
         $intrestcoding = $row['S_INTREST'];
@@ -44,7 +44,7 @@ if (isset($_REQUEST['updateId'])) {
             </div>
         </div>
     </div>
-    <form class="row g-3 w-50 m-auto" action="updateD.php" method="get" enctype="multipart/form-data">
+    <form class="row g-3 w-50 m-auto" action="updatePhp.php" method="get" enctype="multipart/form-data">
         <div class="input-group">
             <spna class="input-group-text w-25 justify-content-center">SPID</spna>
             <input required type="text" class="form-control" name="spid" value="<?php echo $spid ?>" readonly placeholder="Student id" id="sname">
@@ -68,36 +68,36 @@ if (isset($_REQUEST['updateId'])) {
         <div class="input-group">
             <label class="input-group-text">Semester</label>
             <select class="form-select" name="semester" id="sem">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
+                <option <?php if ($semester == "1") { ?> selected <?php } ?> value="1">1</option>
+                <option <?php if ($semester == "2") { ?> selected <?php } ?> value="2">2</option>
+                <option <?php if ($semester == "3") { ?> selected <?php } ?> value="3">3</option>
+                <option <?php if ($semester == "4") { ?> selected <?php } ?> value="4">4</option>
+                <option <?php if ($semester == "5") { ?> selected <?php } ?> value="5">5</option>
+                <option <?php if ($semester == "6") { ?> selected <?php } ?> value="6">6</option>
             </select>
         </div>
         <div class="input-group">
             <label class="input-group-text">Hobby</label>
             <div class="form-check m-2">
-                <input class="form-check-input" name="hobby[]" id="programming" type="checkbox" value="Programming" <?php if (in_array('Programming',$hobby)) { ?>checked <?php } ?>>
+                <input class="form-check-input" name="hobby[]" id="programming" type="checkbox" value="Programming" <?php if (in_array('Programming', $hobby)) { ?>checked <?php } ?>>
                 <label class="form-check-label" for="programming">
                     Programming
                 </label>
             </div>
             <div class="form-check m-2">
-                <input class="form-check-input" name="hobby[]" id="cricket" type="checkbox" value="Cricket" <?php if (in_array('Cricket',$hobby)) { ?>checked <?php } ?>>
+                <input class="form-check-input" name="hobby[]" id="cricket" type="checkbox" value="Cricket" <?php if (in_array('Cricket', $hobby)) { ?>checked <?php } ?>>
                 <label class="form-check-label" for="cricket">
                     Cricket
                 </label>
             </div>
             <div class="form-check m-2">
-                <input class="form-check-input" name="hobby[]" id="football" type="checkbox" value="Football" <?php if (in_array('Football',$hobby)) { ?>checked <?php } ?>>
+                <input class="form-check-input" name="hobby[]" id="football" type="checkbox" value="Football" <?php if (in_array('Football', $hobby)) { ?>checked <?php } ?>>
                 <label class="form-check-label" for="football">
                     Football
                 </label>
             </div>
             <div class="form-check m-2">
-                <input class="form-check-input" name="hobby[]" id="otherHobby" type="checkbox" value="other" <?php if (in_array('other',$hobby)) { ?>checked <?php } ?>>
+                <input class="form-check-input" name="hobby[]" id="otherHobby" type="checkbox" value="other" <?php if (in_array('other', $hobby)) { ?>checked <?php } ?>>
                 <label class="form-check-label" for="otherHobby">
                     Other
                 </label>

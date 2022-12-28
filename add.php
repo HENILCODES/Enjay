@@ -1,3 +1,7 @@
+<?php
+session_start();
+include "PHP/security.php";
+?>
 <!doctype html>
 <html lang="en">
 
@@ -17,6 +21,20 @@
                 </li>
                 <li class="nav-item">
                     <a href="add.php" class="nav-link active"> add </a>
+                </li>
+                <li class="nav-item">
+                    <?php
+                    if ($_SESSION['Active_Email']) {
+                    ?>
+                        <a href="PHP/logout.php?logout=true" class="nav-link "> Log Out </a>
+                    <?php
+                    } else {
+                    ?>
+                        <a href="login.php" class="nav-link "> Log in </a>
+                    <?php
+                    }
+
+                    ?>
                 </li>
             </ul>
         </div>
