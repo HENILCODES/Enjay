@@ -76,7 +76,7 @@
             </td>
             <td> <?php echo $row['S_INTREST']; ?></td>
             <td> <?php echo $row['S_DOB']; ?></td>
-            <td> <?php echo $row['S_WEBSITE']; ?></td>
+            <td> <a href="<?php echo $row['S_WEBSITE']; ?>" target="_blank"><?php echo $row['S_WEBSITE']; ?></a></td>
             <td class="text-center"> <img class="Img" src="upload/<?php echo $row['S_PHOTO']; ?>" alt="<?php echo $row['S_PHOTO']; ?>"></td>
             <td>
               <a class="btn btn-success bi bi-pencil-square" href="PHP/updateForm.php?updateId=<?php echo $row['SPID']; ?>"></a>

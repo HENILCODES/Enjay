@@ -23,7 +23,7 @@ if (isset($_REQUEST['updateId'])) {
         $email = $row['S_EMAIL'];
         $contact = $row['S_CONTACT'];
         $semester = $row['S_SEM'];
-        $hobby = $row['S_HOBBY'];
+        $hobby = explode(" , ",$row['S_HOBBY']);
         $gender = $row['S_GENDER'];
         $color = $row['S_FAV_COLOR'];
         $intrestcoding = $row['S_INTREST'];
@@ -65,7 +65,6 @@ if (isset($_REQUEST['updateId'])) {
             <span class="input-group-text w-25 justify-content-center">Contact</span>
             <input required type="tel" class="form-control" name="scontact" value="<?php echo $contact ?>" placeholder="contact number" id="scontact">
         </div>
-        <input type="hidden" name="Prev_Photo" value="<?php echo $photo ?>">
         <div class="input-group">
             <label class="input-group-text">Semester</label>
             <select class="form-select" name="semester" id="sem">
@@ -80,25 +79,25 @@ if (isset($_REQUEST['updateId'])) {
         <div class="input-group">
             <label class="input-group-text">Hobby</label>
             <div class="form-check m-2">
-                <input class="form-check-input" name="hobby[]" id="programming" type="checkbox" value="Programming">
+                <input class="form-check-input" name="hobby[]" id="programming" type="checkbox" value="Programming" <?php if (in_array('Programming',$hobby)) { ?>checked <?php } ?>>
                 <label class="form-check-label" for="programming">
                     Programming
                 </label>
             </div>
             <div class="form-check m-2">
-                <input class="form-check-input" name="hobby[]" id="cricket" type="checkbox" value="Cricket">
+                <input class="form-check-input" name="hobby[]" id="cricket" type="checkbox" value="Cricket" <?php if (in_array('Cricket',$hobby)) { ?>checked <?php } ?>>
                 <label class="form-check-label" for="cricket">
                     Cricket
                 </label>
             </div>
             <div class="form-check m-2">
-                <input class="form-check-input" name="hobby[]" id="football" type="checkbox" value="Football">
+                <input class="form-check-input" name="hobby[]" id="football" type="checkbox" value="Football" <?php if (in_array('Football',$hobby)) { ?>checked <?php } ?>>
                 <label class="form-check-label" for="football">
                     Football
                 </label>
             </div>
             <div class="form-check m-2">
-                <input checked class="form-check-input" name="hobby[]" id="otherHobby" type="checkbox" value="other">
+                <input class="form-check-input" name="hobby[]" id="otherHobby" type="checkbox" value="other" <?php if (in_array('other',$hobby)) { ?>checked <?php } ?>>
                 <label class="form-check-label" for="otherHobby">
                     Other
                 </label>
@@ -142,8 +141,9 @@ if (isset($_REQUEST['updateId'])) {
             <input required type="url" class="form-control" value="<?php echo $website ?>" id="website" name="website" placeholder="https://">
         </div>
         <div class="input-group">
-            <input type="file" id="photo" class="form-control form-control-lg" name="photo" accept="image/*">
+            <input type="file" id="photo" class="form-control form-control-lg" name="UDphoto" accept="image/*">
         </div>
+        <input type="hidden" name="Prev_Photo" value="<?php echo $photo ?>">
         <div class="mt-5 text-center">
             <button class="btn btn-primary w-50" name="update">update</button>
         </div>
