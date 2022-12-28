@@ -36,7 +36,15 @@ if (isset($_REQUEST['updateId'])) {
 
 <div class="container my-3">
     <h1>Update Form</h1>
-    <form class="row g-3 w-50 m-auto" action="updateD.php" method="post" enctype="multipart/form-data">
+    <div class="container">
+        <div class="card rounded float-end w-25">
+            <img class="card-img-top" src="../upload/<?php echo $row['S_PHOTO']; ?>" alt="<?php echo $row['S_PHOTO']; ?>">
+            <div class="card-body">
+                <label for="photo" class="btn btn-primary">Change</label>
+            </div>
+        </div>
+    </div>
+    <form class="row g-3 w-50 m-auto" action="updateD.php" method="get" enctype="multipart/form-data">
         <div class="input-group">
             <spna class="input-group-text w-25 justify-content-center">SPID</spna>
             <input required type="text" class="form-control" name="spid" value="<?php echo $spid ?>" readonly placeholder="Student id" id="sname">
@@ -57,7 +65,7 @@ if (isset($_REQUEST['updateId'])) {
             <span class="input-group-text w-25 justify-content-center">Contact</span>
             <input required type="tel" class="form-control" name="scontact" value="<?php echo $contact ?>" placeholder="contact number" id="scontact">
         </div>
-
+        <input type="hidden" name="Prev_Photo" value="<?php echo $photo ?>">
         <div class="input-group">
             <label class="input-group-text">Semester</label>
             <select class="form-select" name="semester" id="sem">
@@ -134,10 +142,6 @@ if (isset($_REQUEST['updateId'])) {
             <input required type="url" class="form-control" value="<?php echo $website ?>" id="website" name="website" placeholder="https://">
         </div>
         <div class="input-group">
-            <div class="text-end">
-                <img class="rounded float-end w-25" src="../upload/<?php echo $row['S_PHOTO']; ?>" alt="<?php echo $row['S_PHOTO']; ?>">
-            </div>
-            <label for="photo" class="input-group-text w-25 justify-content-center">Photo</label>
             <input type="file" id="photo" class="form-control form-control-lg" name="photo" accept="image/*">
         </div>
         <div class="mt-5 text-center">
