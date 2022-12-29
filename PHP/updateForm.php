@@ -44,7 +44,7 @@ if (isset($_REQUEST['updateId'])) {
             </div>
         </div>
     </div>
-    <form class="row g-3 w-50 m-auto" action="updatePhp.php" method="get" enctype="multipart/form-data">
+    <form class="row g-3 w-50 m-auto" action="updatePhp.php" method="post" enctype="multipart/form-data">
         <div class="input-group">
             <spna class="input-group-text w-25 justify-content-center">SPID</spna>
             <input required type="text" class="form-control" name="spid" value="<?php echo $spid ?>" readonly placeholder="Student id" id="sname">
