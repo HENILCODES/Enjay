@@ -13,23 +13,23 @@
 include "db.php";
 
 if (isset($_REQUEST['updateId'])) {
-    $query = "select * from student where SPID=$_REQUEST[updateId]";
+    $query = "select * from student where id=$_REQUEST[updateId]";
     $execu = mysqli_query($conn, $query);
     if ($row = mysqli_fetch_array($execu)) {
         # code...
-        $spid = $row['SPID'];
-        $name = $row['S_NAME'];
-        $password = $row['S_PASSWORD'];
-        $email = $row['S_EMAIL'];
-        $contact = $row['S_CONTACT'];
-        $semester = $row['S_SEM'];
-        $hobby = explode(" , ", $row['S_HOBBY']);
-        $gender = $row['S_GENDER'];
-        $color = $row['S_FAV_COLOR'];
-        $intrestcoding = $row['S_INTREST'];
-        $dob = $row['S_DOB'];
-        $website = $row['S_WEBSITE'];
-        $photo = $row['S_PHOTO'];
+        $spid = $row['id'];
+        $name = $row['names'];
+        $password = $row['passwords'];
+        $email = $row['emails'];
+        $contact = $row['contacts'];
+        $semester = $row['sems'];
+        $hobby = explode(" , ", $row['hobbys']);
+        $gender = $row['genders'];
+        $color = $row['fav_colors'];
+        $intrestcoding = $row['intrests'];
+        $dob = $row['dobs'];
+        $website = $row['websites'];
+        $photo = $row['photos'];
     }
 }
 ?>
@@ -38,7 +38,7 @@ if (isset($_REQUEST['updateId'])) {
     <h1>Update Form</h1>
     <div class="container">
         <div class="card rounded float-end w-25">
-            <img class="card-img-top" src="../upload/<?php echo $row['S_PHOTO']; ?>" alt="<?php echo $row['S_PHOTO']; ?>">
+            <img class="card-img-top" src="../upload/<?php echo $photo; ?>" alt="<?php echo $photo; ?>">
             <div class="card-body">
                 <label for="photo" class="btn btn-primary">Change</label>
             </div>

@@ -18,7 +18,7 @@ if (isset($_REQUEST['upload'])) {
 
     if (move_uploaded_file($_FILES['photo']['tmp_name'], "../upload/".$s_photo)) {
 
-        $insert = "INSERT INTO student (`S_NAME`, `S_PASSWORD`, `S_EMAIL`, `S_CONTACT`, `S_SEM`, `S_HOBBY`, `S_GENDER`, `S_FAV_COLOR`, `S_INTREST`, `S_DOB`, `S_WEBSITE`, `S_PHOTO`) VALUES ('$s_name','$s_password','$s_email',$s_contact,$s_semester,'$s_hobby','$s_gender','$s_color','$s_intrestcoding','$s_dob','$s_website','$s_photo')";
+        $insert = "INSERT INTO student (`names`, `passwords`, `emails`, `contacts`, `sems`, `hobbys`, `genders`, `fav_colors`, `intrests`, `dobs`, `websites`, `photos`) VALUES ('$s_name','$s_password','$s_email',$s_contact,$s_semester,'$s_hobby','$s_gender','$s_color','$s_intrestcoding','$s_dob','$s_website','$s_photo')";
         $exe_query = mysqli_query($conn, $insert);
 
         if ($exe_query) {
