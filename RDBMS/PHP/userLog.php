@@ -44,6 +44,7 @@ if (isset($_POST['Login'])) {
     if (mysqli_num_rows($select_Result) > 0) {
         session_start();
         $_SESSION['Active_User'] = $fetch_row['id'];
+        $_SESSION['Active_User_name'] = $fetch_row['name'];
         header("location: ../index.php");
     } else {
     ?>

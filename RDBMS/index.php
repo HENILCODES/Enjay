@@ -9,35 +9,15 @@ include "PHP/db.php";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Home</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-light shadow-sm">
-        <div class="container-fluid">
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
-                    <a href="index.php" class="nav-link"> Home</a>
-                </li>
-                <li class="nav-item">
-                    <?php
-                    if (isset($_SESSION['Active_User'])) {
-                    ?>
-                        <a href="PHP/logout.php?logout=true" class="nav-link "> <?php echo $_SESSION['Active_User']; ?> <i class="bi bi-box-arrow-right"></i></a>
-                    <?php
-                    } else {
-                    ?>
-                        <a href="login.php" class="nav-link "> Log in </a>
-                    <?php
-                    }
-                    ?>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <?php
+    include "Group/nav.php";
+    ?>
     <section style="background-color: #eee;">
         <div class="container py-5">
             <div class="row justify-content-center">
@@ -75,7 +55,7 @@ include "PHP/db.php";
                                     while ($row = mysqli_fetch_array($execute_select_review)) {
                                     ?>
                                         <div class="box">
-                                            <span class="badge bg-secondary">user</span>
+                                            <span class="badge bg-secondary"><?php echo $_SESSION['Active_User_name'] ?></span>
                                             <div class="ms-2">
                                                 <p><?php echo $row['name']; ?></p>
                                             </div>
