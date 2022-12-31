@@ -65,6 +65,7 @@ include "PHP/db.php";
                                     ?>
                                         <form class="row g-3" action="PHP/reviewSend.php" method="post">
                                             <div class="input-group">
+                                                <input type="hidden" name="product_id" value="<?php echo $row['id']; ?>">
                                                 <input autocomplete="off" required type="text" class="form-control" name="reviews" placeholder="type reviews hear" id="sname">
                                                 <button type="submit" class="input-group-text justify-content-center" name="send">send</button>
                                             </div>
@@ -78,13 +79,13 @@ include "PHP/db.php";
                                 <div>
                                     <div class="container" style="height: 100px; overflow-y: auto;">
                                         <?php
-                                        $select_review = "select customers.name,review.name from customers INNER JOIN review ON customers.id = review.customer_id ORDER BY review.id DESC";
+                                        $select_review = "select customers.name AS customer_name,review.name from customers INNER JOIN review ON review.product_id ='$row[id]' ORDER BY review.id DESC";
                                         $execute_select_review = mysqli_query($conn, $select_review);
                                         while ($row = mysqli_fetch_array($execute_select_review)) {
                                             // print_r($row);
                                         ?>
                                             <div class="box">
-                                                <span class="badge bg-secondary"><?php echo $row[0]; ?></span>
+                                                <span class="badge bg-secondary"><?php echo $row['customer_name']; ?></span>
                                                 <div class="ms-2">
                                                     <p><?php echo $row['name']; ?></p>
                                                 </div>
