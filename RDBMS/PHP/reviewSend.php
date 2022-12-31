@@ -5,7 +5,7 @@ include "db.php";
 if (isset($_REQUEST['send'])) {
 
     $U_reviews = $_REQUEST['reviews'];
-    $user = $_SESSION['Active_User'];
+    $user = $active_user_id;
 
     $insert = "insert into review (name,customer_id) VALUES ('$U_reviews',$user)";
     $exe_query = mysqli_query($conn, $insert);

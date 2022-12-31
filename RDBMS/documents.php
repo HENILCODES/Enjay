@@ -2,6 +2,7 @@
 <?php
 session_start();
 include "PHP/db.php";
+include "PHP/security.php";
 ?>
 <html lang="en">
 
@@ -26,8 +27,17 @@ include "PHP/db.php";
                 <div class="modal-body">
                     <form action="PHP/documentSend.php" method="POST">
                         <div class="form-outline mb-4">
-                            <label class="form-label" for="Anumber">Adhar Number</label>
-                            <input required type="number" name="ADnumber" id="Anumber" class="form-control" />
+                            <label for="document" class="form-label">Proof Type</label>
+                            <select class="form-select form-select-lg" id="document" name="document">
+                                <option value="Adhar Card">Aadhar Card</option>
+                                <option value="Voter Card">Voter Card</option>
+                                <option value="Pan Card">Pan card</option>
+                                <option value="Driving Licence">Driving Licence</option>
+                            </select>
+                        </div>
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="Document">Proof Number</label>
+                            <input required type="text" name="DocumentNumber" id="Document" class="form-control" />
                         </div>
                         <button type="submit" class="btn btn-primary btn-block w-100 mb-4" name="sendDocument">Add</button>
                     </form>
@@ -48,7 +58,7 @@ include "PHP/db.php";
                     <div class="card text-black">
                         <div class="card-body">
                             <?php
-                            $select_document = "select * from document where id= $active_user_id";
+                            $select_document = "select * from document where customers_id= $active_user_id";
                             $execut_quer = mysqli_query($conn, $select_document);
                             $result_execu_quer = mysqli_fetch_array($execut_quer);
                             ?>
@@ -56,8 +66,9 @@ include "PHP/db.php";
                             if (!empty($result_execu_quer)) {
                             ?>
                                 <div class="mb-4">
-                                    <h6 ><span class="badge bg-secondary me-2">User Id :</span><?php echo $active_user_id; ?></h6>
-                                    <h5 class="card-title"> <span class="badge bg-secondary me-2">Adhar Number :</span><?php echo $result_execu_quer['number']; ?></h5>
+                                    <h6><span class="badge bg-secondary me-2">User Id :</span><?php echo $active_user_id; ?></h6>
+                                    <h6><span class="badge bg-secondary me-2">Proof Type :</span><?php echo $result_execu_quer['name']; ?></h6>
+                                    <h5 class="card-title"> <span class="badge bg-secondary me-2">Proof Number :</span><?php echo $result_execu_quer['number']; ?></h5>
                                 </div>
                             <?php
                             }
