@@ -41,14 +41,6 @@ include "PHP/db.php";
                                     <form method="get" action="PHP/buy.php">
                                         <input type="hidden" name="product_id" value="<?php echo $row['id']; ?>">
                                         <p class="text-muted mb-1">$ <?php echo $row['price'] ?></p>
-                                        <div class="mb-3 text-left d-flex justify-content-end">
-                                            <label class="form-label me-2">Quantity : </label>
-                                            <select class="form-select form-select-sm w-25" name="quantity">
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                            </select>
-                                        </div>
                                         <?php
                                         if (isset($_SESSION['Active_User'])) {
                                         ?>
@@ -66,7 +58,7 @@ include "PHP/db.php";
                                         <form class="row g-3" action="PHP/reviewSend.php" method="post">
                                             <div class="input-group">
                                                 <input type="hidden" name="product_id" value="<?php echo $row['id']; ?>">
-                                                <input autocomplete="off" required type="text" class="form-control" name="reviews" placeholder="type reviews hear" id="sname">
+                                                <input autocomplete="off" required type="text" class="form-control" name="reviewss" placeholder="type reviewss hear" id="sname">
                                                 <button type="submit" class="input-group-text justify-content-center" name="send">send</button>
                                             </div>
                                         </form>
@@ -75,13 +67,13 @@ include "PHP/db.php";
                                     }
                                     ?>
                                 </div>
-                                <span>Reviews</span>
+                                <span>Reviewss</span>
                                 <div>
                                     <div class="container" style="height: 100px; overflow-y: auto;">
                                         <?php
-                                        $select_review = "select customers.name AS customer_name,review.name from customers INNER JOIN review ON review.product_id ='$row[id]' ORDER BY review.id DESC";
-                                        $execute_select_review = mysqli_query($conn, $select_review);
-                                        while ($row = mysqli_fetch_array($execute_select_review)) {
+                                        $select_reviews = "select customers.name AS customer_name,reviews.name from customers INNER JOIN reviews ON reviews.product_id ='$row[id]' ORDER BY reviews.id DESC";
+                                        $execute_select_reviews = mysqli_query($conn, $select_reviews);
+                                        while ($row = mysqli_fetch_array($execute_select_reviews)) {
                                             // print_r($row);
                                         ?>
                                             <div class="box">

@@ -32,11 +32,10 @@ include "PHP/security.php";
                             </div>
                         </div>
                         <?php
-                        $seletc_order = "select customers.id AS customer_id ,orders.id,orders.product_id,orders.quantity,products.name AS product_name from customers INNER JOIN orders ON orders.customer_id=$active_user_id INNER JOIN products ON products.id = orders.product_id";
+                        $seletc_order = "select customers.id AS customer_id ,customer_orders.id,customer_orders.product_id,products.name AS product_name from customers INNER JOIN customer_orders ON customer_orders.customer_id=$active_user_id INNER JOIN products ON products.id = customer_orders.product_id";
                         $execute_select_order = mysqli_query($conn, $seletc_order);
 
                         while ($rows = mysqli_fetch_array($execute_select_order)) {
-                            print_r($rows)
                         ?>
                             <div class="card rounded-3 mb-4">
                                 <div class="card-body p-4">
@@ -50,12 +49,8 @@ include "PHP/security.php";
                                         </div>
                                         <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1 d-flex" style="justify-content: space-between;">
                                             <h5 class="mb-0">$ 499.00</h5>
-                                            <span class="badge bg-secondary fs-6"> X </span>
-                                            <h5 class="mb-0"> <?php echo $rows['quantity']; ?> </h5>
                                         </div>
-                                        Cust_Id :<?php echo $rows['customer_id']; ?>
                                         <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                                            <?php echo $rows['id']; ?>
                                             <a href="PHP/deleteOrder.php?&orderId=<?php echo $rows['id']; ?>" class="text-danger"><i class="bi bi-trash fs-3"></i></a>
                                         </div>
                                     </div>
