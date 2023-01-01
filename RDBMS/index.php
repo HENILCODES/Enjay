@@ -72,10 +72,9 @@ include "PHP/db.php";
                                 <div>
                                     <div class="container" style="height: 100px; overflow-y: auto;">
                                         <?php
-                                        $select_reviews = "select customers.name AS customer_name,reviews.name from customers INNER JOIN reviews ON reviews.product_id ='$row[id]' ORDER BY reviews.id DESC";
+                                        $select_reviews = "SELECT reviews.name,customers.name as customer_name from reviews INNER JOIN customers ON reviews.customer_id = customers.id WHERE product_id='$row[id]' ORDER by reviews.id DESC";
                                         $execute_select_reviews = mysqli_query($conn, $select_reviews);
                                         while ($row = mysqli_fetch_array($execute_select_reviews)) {
-                                            // print_r($row);
                                         ?>
                                             <div class="box">
                                                 <span class="badge bg-secondary"><?php echo $row['customer_name']; ?></span>

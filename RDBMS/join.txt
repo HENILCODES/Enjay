@@ -1,0 +1,5 @@
+inner join
+    select customer_products.customer_id,customers.id,customers.name,products.id ,products.name from customer_products INNER join customers on customer_products.customer_id = customers.id INNER JOIN products ON customer_products.product_id = products.id
+
+    SELECT reviews.name,customers.name,reviews.product_id,reviews.id from reviews INNER JOIN customers ON reviews.customer_id = customers.id WHERE product_id='91' ORDER by reviews.id DESC
+
