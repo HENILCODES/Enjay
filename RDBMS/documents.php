@@ -67,9 +67,14 @@ include "PHP/security.php";
                             if (!empty($result_execu_quer)) {
                             ?>
                                 <div class="mb-4">
-                                    <h6><span class="badge bg-secondary me-2">User Id :</span><?php echo $active_user_id; ?></h6>
-                                    <h6><span class="badge bg-secondary me-2">Proof Type :</span><?php echo $result_execu_quer['name']; ?></h6>
-                                    <h5 class="card-title"> <span class="badge bg-secondary me-2">Proof Number :</span><?php echo $result_execu_quer['number']; ?></h5>
+                                    <h4><span class="badge bg-secondary me-2">User Id :</span> <?php echo $active_user_id; ?></h4>
+                                    <h4><span class="badge bg-secondary me-2">Proof Type :</span> <?php echo $result_execu_quer['name']; ?></h4>
+                                    <h4 class="card-title"> <span class="badge bg-secondary me-2">Proof Number :</span><?php echo $result_execu_quer['number']; ?></h4>
+                                </div>
+                                <div class="text-end">
+                                    <a type="button" class="btn btn-danger" href="PHP/documentSend.php?deleteDocument=<?php echo $active_user_id; ?>">
+                                        <i class="bi bi-trash fs-4"></i>
+                                    </a>
                                 </div>
                             <?php
                             }

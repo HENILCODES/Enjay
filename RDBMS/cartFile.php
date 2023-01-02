@@ -14,7 +14,14 @@ include "PHP/security.php";
     <link rel="stylesheet" href="CSS/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 </head>
-
+<style>
+    .imgSet {
+        height: 150px;
+        display: block;
+        background-position: center !important;
+        background-size: cover !important;
+    }
+</style>
 <body>
     <?php
     include "Group/nav.php";
@@ -32,7 +39,7 @@ include "PHP/security.php";
                             </div>
                         </div>
                         <?php
-                        $seletc_order = "select customers.id AS customer_id ,customer_products.id,customer_products.product_id,products.name AS product_name , products.price AS price from customers INNER JOIN customer_products ON customer_products.customer_id=customers.id INNER JOIN products ON products.id = customer_products.product_id where customers.id = $active_user_id";
+                        $seletc_order = "select customers.id AS customer_id,products.photo ,customer_products.id,customer_products.product_id,products.name AS product_name , products.price AS price from customers INNER JOIN customer_products ON customer_products.customer_id=customers.id INNER JOIN products ON products.id = customer_products.product_id where customers.id = $active_user_id";
                         $execute_select_order = mysqli_query($conn, $seletc_order);
 
                         while ($rows = mysqli_fetch_array($execute_select_order)) {
@@ -41,11 +48,11 @@ include "PHP/security.php";
                                 <div class="card-body p-4">
                                     <div class="row d-flex justify-content-between align-items-center">
                                         <div class="col-md-2 col-lg-2 col-xl-2">
-                                            <img src="upload/lap.jpeg" class="img-fluid rounded-3" alt="Cotton T-shirt">
+                                            <div class="card-img-top imgSet" style=" background: url('upload/<?php echo $rows['photo']; ?>')" alt="Apple Computer"></div>
                                         </div>
                                         <div class="col-md-3 col-lg-3 col-xl-3">
-                                            <p class="lead fw-normal mb-2"><?php echo $rows['product_name'] ?></p>
                                             <span class="badge bg-primary"># <?php echo $rows['product_id']; ?></span>
+                                            <p class="lead fw-normal mb-2"><?php echo $rows['product_name'] ?></p>
                                         </div>
                                         <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1 d-flex" style="justify-content: space-between;">
                                             <h5 class="mb-0">$ <?php echo $rows['price'];  ?></h5>
