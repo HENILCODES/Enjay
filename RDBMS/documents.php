@@ -97,5 +97,6 @@ include "PHP/security.php";
             </div>
     </section>
 </body>
+<script src="JS/bootstrap.bundle.min.js"></script>
 
 </html>

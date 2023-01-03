@@ -56,6 +56,7 @@ include "PHP/security.php";
                                         </div>
                                         <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1 d-flex" style="justify-content: space-between;">
                                             <h5 class="mb-0">$ <?php echo $rows['price'];  ?></h5>
+                                            <h5 class="mb-0"> <?php echo $rows['price'];  ?></h5>
                                         </div>
                                         <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                                             <a href="PHP/deleteOrder.php?&orderId=<?php echo $rows['id']; ?>" class="text-danger"><i class="bi bi-trash fs-3"></i></a>
@@ -72,5 +73,5 @@ include "PHP/security.php";
         </section>
     </div>
 </body>
-
+<script src="JS/bootstrap.bundle.min.js"></script>
 </html>

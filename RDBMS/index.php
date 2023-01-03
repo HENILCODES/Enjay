@@ -40,7 +40,7 @@ include "PHP/db.php";
                         <div class="col mb-5" style="width: 420px;">
                             <div class="card text-black mb-5 shadow-lg rounded-5">
                                 <div class="card-img-top imgSet" style=" background: url('upload/<?php echo $row['photo']; ?>')" alt="Apple Computer"></div>
-                                <div class="card-body" >
+                                <div class="card-body">
                                     <div style="height: 75px;" class="mb-2">
                                         <p class="card-title"> <span class="badge bg-primary me-2 fw-bold">#<?php echo $row['id'] ?> </span> <span class="fs-5 fw-bold" style="font-family: monospace;"><?php echo $row['name'] ?></span> </p>
                                     </div>
@@ -51,7 +51,22 @@ include "PHP/db.php";
                                             <?php
                                             if (isset($_SESSION['Active_User'])) {
                                             ?>
-                                                <button class="btn btn-success" type="submit" name="buy">Buy</button>
+                                                <div class="d-flex justify-content-end">
+                                                    <div class="input-group w-50 me-3">
+                                                        <label class="input-group-text">Quantity</label>
+                                                        <select class="form-select" name="semester" id="sem">
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                            <option value="5">5</option>
+                                                            <option value="6">6</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="bo">
+                                                        <button class="btn btn-success" type="submit" name="buy">Buy</button>
+                                                    </div>
+                                                </div>
                                             <?php
                                             }
                                             ?>
