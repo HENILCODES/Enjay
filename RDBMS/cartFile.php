@@ -22,6 +22,7 @@ include "PHP/security.php";
         background-size: cover !important;
     }
 </style>
+
 <body>
     <?php
     include "Group/nav.php";
@@ -39,7 +40,7 @@ include "PHP/security.php";
                             </div>
                         </div>
                         <?php
-                        $seletc_order = "select customers.id AS customer_id,products.photo ,customer_products.id,customer_products.product_id,products.name AS product_name , products.price AS price from customers INNER JOIN customer_products ON customer_products.customer_id=customers.id INNER JOIN products ON products.id = customer_products.product_id where customers.id = $active_user_id";
+                        $seletc_order = "select customers.id AS customer_id,products.photo ,customer_products.quantity,customer_products.id,customer_products.product_id,products.name AS product_name , products.price AS price from customers INNER JOIN customer_products ON customer_products.customer_id=customers.id INNER JOIN products ON products.id = customer_products.product_id where customers.id = $active_user_id";
                         $execute_select_order = mysqli_query($conn, $seletc_order);
 
                         while ($rows = mysqli_fetch_array($execute_select_order)) {
@@ -54,9 +55,12 @@ include "PHP/security.php";
                                             <span class="badge bg-primary"># <?php echo $rows['product_id']; ?></span>
                                             <p class="lead fw-normal mb-2"><?php echo $rows['product_name'] ?></p>
                                         </div>
-                                        <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1 d-flex" style="justify-content: space-between;">
-                                            <h5 class="mb-0">$ <?php echo $rows['price'];  ?></h5>
-                                            <h5 class="mb-0"> <?php echo $rows['price'];  ?></h5>
+                                        <div class="col-md-3 col-lg-2 col-xl-4 offset-lg-1 d-flex" style="justify-content: space-between;">
+                                            <h5 class="mb-0">₹ <?php echo $rows['price'];  ?></h5>
+                                            <span class="badge bg-info text-dark fs-6"> X </span>
+                                            <h5 class="mb-0"> <?php echo $rows['quantity']; ?> </h5>
+                                            <span class="badge bg-info text-dark fs-6"> = </span>
+                                            <h5 class="mb-0 fw-bold">₹<?php echo $rows['price']*$rows['quantity']; ?> </h5>
                                         </div>
                                         <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                                             <a href="PHP/deleteOrder.php?&orderId=<?php echo $rows['id']; ?>" class="text-danger"><i class="bi bi-trash fs-3"></i></a>
@@ -73,5 +77,4 @@ include "PHP/security.php";
         </section>
     </div>
 </body>
-<script src="JS/bootstrap.bundle.min.js"></script>
 </html>

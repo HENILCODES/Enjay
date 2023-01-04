@@ -1,3 +1,7 @@
+<head>
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+</head>
 <nav class="navbar navbar-expand-lg sticky-top shadow navbar-light bg-light">
     <div class="container-fluid">
         <a class="navbar-brand fs-3 fw-bold" href="index.php">Shopping Mart</a>
@@ -10,13 +14,13 @@
                     <a href="documents.php" class="nav-link fs-5"> Document </a>
                 </li>
                 <li class="nav-item">
-                    <a href="AddProduct.php" class="nav-link fs-5"> Add Product </a>
-                </li>
-                <li class="nav-item">
                     <a href="cartFile.php" class="nav-link"> <i class="bi bi-cart4 fs-5"></i></a>
                 </li>
             </ul>
             <ul class="navbar-nav d-flex">
+                <li class="nav-item">
+                    <a href="AddProduct.php" class="nav-link fs-5 text-primary bi bi-plus-square-fill"> </a>
+                </li>
                 <li class="nav-item dropdown me-5 pe-5">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="bi bi-person-circle fs-3"></i>
@@ -44,3 +48,4 @@
         </div>
     </div>
 </nav>
+<script src="JS/bootstrap.bundle.min.js"></script>
