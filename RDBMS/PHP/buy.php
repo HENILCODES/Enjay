@@ -2,7 +2,7 @@
 session_start();
 include "db.php";
 
-if (isset($_REQUEST['buy'])) {
+if (isset($_REQUEST['quantity'])) {
     
     $product_id = $_REQUEST['product_id'];
     $customer_id = $active_user_id;

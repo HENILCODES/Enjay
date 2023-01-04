@@ -13,7 +13,7 @@
     include "Group/nav.php";
     ?>
     <div class="container my-3">
-        <form class="row g-3 w-50 m-auto" action="PHP/addProducts.php" method="post" enctype="multipart/form-data">
+        <form class="row g-3 w-50 m-auto" autocomplete="off" action="PHP/addProducts.php" method="post" enctype="multipart/form-data">
             <div class="input-group">
                 <spna class="input-group-text w-25 justify-content-center"> Name</spna>
                 <input required type="text" class="form-control" name="Product_name" placeholder="Product Name" >

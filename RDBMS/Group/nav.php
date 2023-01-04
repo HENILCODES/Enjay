@@ -11,9 +11,6 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ps-2">
                 <li class="nav-item">
-                    <a href="documents.php" class="nav-link fs-5"> Document </a>
-                </li>
-                <li class="nav-item">
                     <a href="cartFile.php" class="nav-link"> <i class="bi bi-cart4 fs-5"></i></a>
                 </li>
             </ul>
@@ -29,7 +26,7 @@
                         <?php
                         if (isset($_SESSION['Active_User'])) {
                         ?>
-                            <li class="ps-3"> <?php echo $_SESSION['Active_User_name']; ?> </li>
+                            <li class="nav-item"> <a href="profile.php" class="dropdown-item"> Profile</a> </li>
                             <li class="nav-item">
                                 <a href="PHP/logout.php?logout=true" class="dropdown-item"> Log Out <i class="bi bi-box-arrow-right text-danger"></i></a>
                             </li>

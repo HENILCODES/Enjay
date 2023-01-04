@@ -55,12 +55,19 @@ include "PHP/security.php";
                                             <span class="badge bg-primary"># <?php echo $rows['product_id']; ?></span>
                                             <p class="lead fw-normal mb-2"><?php echo $rows['product_name'] ?></p>
                                         </div>
-                                        <div class="col-md-3 col-lg-2 col-xl-4 offset-lg-1 d-flex" style="justify-content: space-between;">
-                                            <h5 class="mb-0">₹ <?php echo $rows['price'];  ?></h5>
-                                            <span class="badge bg-info text-dark fs-6"> X </span>
-                                            <h5 class="mb-0"> <?php echo $rows['quantity']; ?> </h5>
-                                            <span class="badge bg-info text-dark fs-6"> = </span>
-                                            <h5 class="mb-0 fw-bold">₹<?php echo $rows['price']*$rows['quantity']; ?> </h5>
+                                        <div class="col-md-3 col-lg-2 col-xl-5 d-flex" style="justify-content: space-between;">
+                                            <h5 class="mb-0">₹<?php echo $rows['price']; ?></h5>
+                                            <div class="ms-2">
+                                                <span class="badge bg-info text-dark fs-6"> X </span>
+                                            </div>
+                                            <form method="post">
+                                                <input type="hidden" name="pid" value="<?php echo $rows['product_id']; ?>">
+                                                <input type="number" max="10" maxlength="10" class="form-control w-50 m-auto" name="quantity" value="<?php echo $rows['quantity']; ?>">
+                                            </form>
+                                            <div class="me-2">
+                                                <span class="badge bg-info text-dark fs-6"> = </span>
+                                            </div>
+                                            <h5 class="mb-0 fw-bold">₹<?php echo $rows['price'] * $rows['quantity']; ?> </h5>
                                         </div>
                                         <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                                             <a href="PHP/deleteOrder.php?&orderId=<?php echo $rows['id']; ?>" class="text-danger"><i class="bi bi-trash fs-3"></i></a>
@@ -77,4 +84,18 @@ include "PHP/security.php";
         </section>
     </div>
 </body>
+<?php
+if (isset($_REQUEST['quantity'])) {
+    $product_id = $_REQUEST['pid'];
+    $customer_id = $active_user_id;
+    $quantity = $_REQUEST['quantity'];
+    $insert_order = "UPDATE customer_products SET quantity=$quantity WHERE product_id =$product_id";
+    $execut_insert = mysqli_query($conn, $insert_order);
+    if ($execut_insert) {
+        echo "<meta http-equiv='refresh' content='0'>";
+    }
+}
+
+?>
+
 </html>

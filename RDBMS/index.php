@@ -22,7 +22,7 @@ include "PHP/db.php";
 
 <body>
     <?php
-    include "Group/nav.php";
+    include "Group/nav.php";    
     ?>
     <section style="background-color: #eee;">
         <div class="container py-5">
@@ -33,16 +33,16 @@ include "PHP/db.php";
                     $result_select_product = mysqli_query($conn, $select_product);
                     while ($row = mysqli_fetch_array($result_select_product)) {
                     ?>
-                        <div class="col mb-5" style="width: 420px;">
+                        <div class="col mb-5" style="width: 430px;">
                             <a href="product.php?q=<?php echo $row['id'] ?>" class="text-decoration-none">
                                 <div class="card text-black mb-5 pb-2 shadow-lg rounded-5">
-                                    <div class="card-img-top imgSet" style=" background: url('upload/<?php echo $row['photo']; ?>')" alt="Apple Computer"></div>
-                                    <div class="card-body">
-                                        <div style="height: 75px;" class="mb-2">
-                                            <p class="card-title"> <span class="badge bg-primary me-2 fw-bold">#<?php echo $row['id'] ?> </span> <span class="fs-5 fw-bold" style="font-family: monospace;"><?php echo $row['name'] ?></span> </p>
+                                    <img class="card-img-top" style="height: 300px;" src="upload/<?php echo $row['photo']?>" alt="">
+                                    <div class="card-body d-flex justify-content-space-evenly" style="height: 100px;">
+                                        <div class="me-2">
+                                            <p class="card-title"> <span class="badge bg-primary me-2 fw-bold">#<?php echo $row['id'] ?> </span> <br> <span class="fs-5 fw-bold" style="font-family: monospace;"><?php echo $row['name'] ?></span> </p>
                                         </div>
                                         <div class="text-end">
-                                            <p class="fw-bolder fs-4 text-danger mb-1"><sup>₹</sup> <?php echo $row['price'] ?></p>
+                                            <p class="fw-bolder fs-4 text-danger"><?php echo $row['price'] ?>/-</p>
                                         </div>
                                     </div>
                                 </div>

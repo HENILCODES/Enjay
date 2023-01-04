@@ -10,8 +10,4 @@ if (isset($_REQUEST['send'])) {
 
     $insert = "insert into reviews (name,customer_id,product_id) VALUES ('$U_reviews',$user,$product_id)";
     $exe_query = mysqli_query($conn, $insert);
-
-    if ($exe_query) {
-        header("location: ../index.php");
-    }
 }

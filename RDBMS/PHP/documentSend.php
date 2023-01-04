@@ -15,7 +15,7 @@ if (isset($_REQUEST['sendDocument'])) {
         $insert = "insert into document (customers_id,number,name) values($active_user_id,'$DocumentNumber','$DocumentType')";
         $execut = mysqli_query($conn, $insert);
         if ($execut) {
-            header("location: ../documents.php");
+            header("location: ../profile.php");
         }
     } else {
         echo "<h2>403 Data Already exists</h2>";
@@ -29,7 +29,7 @@ if (isset($_REQUEST['deleteDocument'])) {
     $deleteQuery = "DELETE FROM document WHERE customers_id = $deleteDocument";
     $executDelete = mysqli_query($conn,$deleteQuery);
     if ($executDelete) {
-        header("location: ../documents.php");
+        header("location: ../profile.php");
     }
 }
 
