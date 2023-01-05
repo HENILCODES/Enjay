@@ -15,9 +15,6 @@
                 </li>
             </ul>
             <ul class="navbar-nav d-flex">
-                <li class="nav-item">
-                    <a href="AddProduct.php" class="nav-link fs-5 text-primary bi bi-plus-square-fill"> </a>
-                </li>
                 <li class="nav-item dropdown me-5 pe-5">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="bi bi-person-circle fs-3"></i>
