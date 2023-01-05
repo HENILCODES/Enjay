@@ -62,7 +62,7 @@ include "PHP/security.php";
                                             </div>
                                             <form method="post">
                                                 <input type="hidden" name="pid" value="<?php echo $rows['product_id']; ?>">
-                                                <input type="number" max="10" maxlength="10" class="form-control w-50 m-auto" name="quantity" value="<?php echo $rows['quantity']; ?>">
+                                                <input type="number" max="10" min="0" maxlength="10" class="form-control" name="quantity" value="<?php echo $rows['quantity']; ?>">
                                             </form>
                                             <div class="me-2">
                                                 <span class="badge bg-info text-dark fs-6"> = </span>

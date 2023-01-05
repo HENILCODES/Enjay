@@ -52,7 +52,7 @@
                                     <div class="d-flex mt-3 justify-content-end">
                                         <div class="input-group me-3" style="width: 200px;">
                                             <label class="input-group-text">Quantity</label>
-                                            <input type="number" max="10" value="1" maxlength="10" class="form-control" name="quantity">
+                                            <input type="number" max="10" min="0" value="1" maxlength="10" class="form-control" name="quantity">
                                         </div>
                                         <div class="bo">
                                             <button class="btn btn-success" type="submit" name="buy">Buy</button>

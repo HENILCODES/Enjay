@@ -65,10 +65,6 @@
                             <input required type="text" value="<?php echo $rowsP['Customer_name']; ?>" name="Name" class="form-control" />
                         </div>
                         <div class="form-outline mb-4">
-                            <label class="form-label">Email Address</label>
-                            <input required type="text" value="<?php echo $rowsP['email']; ?>" name="Email" class="form-control" />
-                        </div>
-                        <div class="form-outline mb-4">
                             <label class="form-label">Password</label>
                             <input required type="password" name="Password" value="<?php echo $rowsP['password']; ?>" class="form-control" />
                         </div>
@@ -85,7 +81,7 @@
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col col-lg-9 mb-4 mb-lg-0">
-                    <div class="card mb-3" style="border-radius: .5rem;">
+                    <div class="card mb-3 shadow" style="border-radius: .5rem;">
                         <div class="row g-0">
                             <div class="col-md-4 gradient-custom text-center text-black" style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
                                 <img src="upload/download.png" alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
