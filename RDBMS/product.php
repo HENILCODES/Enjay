@@ -40,7 +40,7 @@
                             <h1><?php echo $rows['name']; ?></h1>
                         </div>
                         <div class="description py-3 ">
-                            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore fugit doloribus consectetur.</p>
+                            <!-- <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore fugit doloribus consectetur.</p> -->
                         </div>
                         <div class="text-end">
                             <form method="get" action="PHP/buy.php">

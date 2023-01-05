@@ -4,10 +4,10 @@
 </head>
 <!-- register -->
 <?php
+session_start();
 include "db.php";
 
 if (isset($_POST['Register'])) {
-
     $Name = $_REQUEST['Name'];
     $Password = $_REQUEST['Password'];
     $Email = $_REQUEST['Email'];
@@ -28,6 +28,29 @@ if (isset($_POST['Register'])) {
             header("location: ../login.php");
         }
     }
+}
+
+if (isset($_POST['Update'])) {
+    $Name = $_REQUEST['Name'];
+    $Password = $_REQUEST['Password'];
+    $Email = $_REQUEST['Email'];
+
+    // $select = "SELECT * FROM customers WHERE email = '$Email'";
+    // $select_Result = mysqli_query($conn, $select);
+
+    // if (mysqli_num_rows($select_Result) > 0) {
+    // ?>
+    //     <div class="alert alert-danger w-50 m-auto text-center" role="alert">
+    //         Email Address already exists. <a href="../register.php" class="alert-link">try again</a>
+    //     </div>
+    // <?php
+    // } else {
+        $insert_query = "UPDATE customers SET name='$Name',email='$Email',password='$Password' WHERE id = $active_user_id";
+        $insert_result = mysqli_query($conn, $insert_query);
+        if ($insert_result) {
+            header("location: ../profile.php");
+        }
+    // }
 }
 
 

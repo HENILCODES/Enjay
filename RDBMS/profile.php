@@ -16,11 +16,11 @@
     $select_profile = "SELECT customers.id,customers.password,customers.name AS Customer_name,customers.email, document.name,document.number
     FROM customers 
         LEFT JOIN document ON document.customers_id = customers.id
-    WHERE document.customers_id = 2";
+    WHERE document.customers_id = $active_user_id";
     $execut_select_profile = mysqli_query($conn, $select_profile);
     $rowsP = mysqli_fetch_array($execut_select_profile);
     ?>
-    <div class="modal" id="myModal">
+    <div class="modal" id="deleteDocument">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -51,6 +51,36 @@
             </div>
         </div>
     </div>
+    <div class="modal" id="EditProfile">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Update Details</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="PHP/userLog.php" method="POST" autocomplete="off">
+                        <div class="form-outline mb-4">
+                            <label class="form-label">User Name</label>
+                            <input required type="text" value="<?php echo $rowsP['Customer_name']; ?>" name="Name" class="form-control" />
+                        </div>
+                        <div class="form-outline mb-4">
+                            <label class="form-label">Email Address</label>
+                            <input required type="text" value="<?php echo $rowsP['email']; ?>" name="Email" class="form-control" />
+                        </div>
+                        <div class="form-outline mb-4">
+                            <label class="form-label">Password</label>
+                            <input required type="password" name="Password" value="<?php echo $rowsP['password']; ?>" class="form-control" />
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block w-100 mb-4" name="Update">Update</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <section style="background-color: #f4f5f7;">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
@@ -70,9 +100,14 @@
                                             <h6 class="fw-bold">Email</h6>
                                             <p class="text-muted"><?php echo $rowsP['email'] ?></p>
                                         </div>
-                                        <div class="col-6 mb-3">
+                                        <div class="col-3 mb-3">
                                             <h6 class="fw-bold">Password</h6>
                                             <p class="text-muted"><?php echo $rowsP['password'] ?></p>
+                                        </div>
+                                        <div class="col">
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#EditProfile">
+                                                <i class="bi bi-pencil-square"></i>
+                                            </button>
                                         </div>
                                     </div>
                                     <h5 class="text-danger">Document Details</h5>
@@ -94,7 +129,7 @@
                                                 <h6>Number</h6>
                                                 <p class="text-muted"><?php echo $rowsP['number'] ?></p>
                                             </div>
-                                            <div class="col-1">
+                                            <div class="col">
                                                 <a type="button" class="btn btn-danger" href="PHP/documentSend.php?deleteDocument=<?php echo $active_user_id; ?>">
                                                     <i class="bi bi-trash "></i>
                                                 </a>
@@ -108,7 +143,7 @@
                                         if (empty($result_execu_quer)) {
                                         ?>
                                             <h5 class="card-title">No Data Found</h5>
-                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#deleteDocument">
                                                 <i class="bi bi-plus-square fs-4"></i>
                                             </button>
                                         <?php
