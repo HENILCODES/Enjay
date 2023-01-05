@@ -66,7 +66,7 @@
                         </div>
                         <div class="form-outline mb-4">
                             <label class="form-label">Password</label>
-                            <input required type="password" name="Password" value="<?php echo $rowsP['password']; ?>" class="form-control" />
+                            <input required type="password" name="Password" class="form-control" />
                         </div>
                         <button type="submit" class="btn btn-primary btn-block w-100 mb-4" name="Update">Update</button>
                     </form>

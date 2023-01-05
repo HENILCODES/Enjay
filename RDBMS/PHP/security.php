@@ -1,6 +1,6 @@
 <?php
 
-if (!$_SESSION['Active_Admin_name']) {
+if (!$_SESSION['Active_User']) {
     header("location: login.php");
 }
 
