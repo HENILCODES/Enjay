@@ -3,7 +3,7 @@ session_start();
 include "Php/security.php";
 ?>
 <head>
-    <link rel="stylesheet" href="CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="../CSS/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 </head>
 <nav class="navbar navbar-expand-lg sticky-top shadow navbar-light bg-light">
@@ -22,4 +22,4 @@ include "Php/security.php";
     </div>
 </nav>
 
-<script src="JS/bootstrap.bundle.min.js"></script>
+<script src="../JS/bootstrap.bundle.min.js"></script>

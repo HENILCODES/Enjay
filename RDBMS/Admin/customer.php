@@ -19,6 +19,9 @@
                 <div class="text-center pb-4">
                     <h2 class="fw-bold">Customer Table</h2>
                 </div>
+                <div class="text-end pb-4 d-flex justify-content-start">
+                    <input type="search" id="search" class="form-control w-25 me-5" placeholder="search by id">
+                </div>
                 <table class="table table-primary text-center table-responsive table-bordered">
                     <thead class="table-borderless table-dark">
                         <th>ID</th>
@@ -49,5 +52,5 @@
         </section>
     </div>
 </body>
-
+<script src="../JS/search.js"></script>
 </html>

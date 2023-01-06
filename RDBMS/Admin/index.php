@@ -24,9 +24,9 @@
     <div class="container">
         <section style="background-color: #eee;" class="shadow ps-5 pe-5">
             <div class="container my-5 py-5">
-                <div class="d-flex justify-content-evenly">
-                    <a href="product.php" class="text-decoration-none">
-                        <div class="col bg-primary shadow-lg rounded" style="width: 250px;">
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 flex-wrap justify-content-evenly">
+                    <a href="product.php" class="col text-decoration-none">
+                        <div class="col bg-primary shadow-lg rounded-4" style="width: 250px;">
                             <div class="pt-5 pe-5 ps-5">
                                 <p class="d-flex align-items-center text-white justify-content-center fs-1 fw-bolder"><?php echo $total_product['Total']; ?> </p>
                             </div>
@@ -35,8 +35,8 @@
                             </div>
                         </div>
                     </a>
-                    <a href="customer.php" class="text-decoration-none">
-                        <div class="col bg-primary shadow-lg rounded" style="width: 250px;">
+                    <a href="customer.php" class="col text-decoration-none">
+                        <div class="col bg-primary shadow-lg rounded-4" style="width: 250px;">
                             <div class="pt-5 pe-5 ps-5">
                                 <p class="d-flex align-items-center text-white justify-content-center fs-1 fw-bolder"><?php echo $total_customer['Total']; ?> </p>
                             </div>

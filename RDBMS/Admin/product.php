@@ -48,13 +48,14 @@
         </div>
     </div>
     <div class="container">
-        <section style="background-color: #eee;" class="shadow ps-5 pe-5">
+        <section style="background-color: #eee;" class="shadow rounded ps-5 pe-5">
             <div class="container my-5 py-4">
                 <div class="text-center">
                     <h2 class="fw-bold">Product Table</h2>
                 </div>
-                <div class="text-end pb-4">
-                    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#AddProduct">Add</button>
+                <div class="text-end pb-4 d-flex justify-content-between">
+                    <input type="search" class="form-control w-25 me-5" id="search" placeholder="search by id">
+                    <button class="btn btn-success shadow" data-bs-toggle="modal" data-bs-target="#AddProduct">Add</button>
                 </div>
                 <table class="table table-primary text-center table-responsive table-bordered">
                     <thead class="table-borderless table-dark">
@@ -75,7 +76,10 @@
                                 <td><?php echo $row['name'] ?></td>
                                 <td><?php echo $row['price'] ?></td>
                                 <td> <img src="../upload/<?php echo $row['photo'] ?>" width="80px"> </td>
-                                <td><a href="Php/deleteRecord.php?Product_id=<?php echo $row['id'] ?>" class="btn btn-danger bi bi-trash"></a></td>
+                                <td>
+                                    <a class="btn btn-success bi bi-pencil me-3"></a>
+                                    <a href="Php/deleteRecord.php?Product_id=<?php echo $row['id'] ?>" class="btn btn-danger bi bi-trash"></a>
+                                </td>
                             </tr>
                         <?php
                         }
@@ -86,5 +90,6 @@
         </section>
     </div>
 </body>
+<script src="../JS/search.js"></script>
 
 </html>
