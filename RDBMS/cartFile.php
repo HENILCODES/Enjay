@@ -49,7 +49,9 @@ include "PHP/security.php";
                                 <div class="card-body p-4">
                                     <div class="row d-flex justify-content-between align-items-center">
                                         <div class="col-md-2 col-lg-2 col-xl-2">
-                                            <div class="card-img-top imgSet" style=" background: url('upload/<?php echo $rows['photo']; ?>')" alt="Apple Computer"></div>
+                                            <a href="product.php?q=<?php echo $rows['product_id']; ?>">
+                                                <div class="card-img-top imgSet" style=" background: url('upload/<?php echo $rows['photo']; ?>')" alt="Apple Computer"></div>
+                                            </a>
                                         </div>
                                         <div class="col-md-3 col-lg-3 col-xl-3">
                                             <span class="badge bg-primary"># <?php echo $rows['product_id']; ?></span>
@@ -62,7 +64,7 @@ include "PHP/security.php";
                                             </div>
                                             <form method="post">
                                                 <input type="hidden" name="pid" value="<?php echo $rows['product_id']; ?>">
-                                                <input type="number" max="10" min="0" maxlength="10" class="form-control" name="quantity" value="<?php echo $rows['quantity']; ?>">
+                                                <input type="number" max="10" min="1" maxlength="10" class="form-control" name="quantity" value="<?php echo $rows['quantity']; ?>">
                                             </form>
                                             <div class="me-2">
                                                 <span class="badge bg-info text-dark fs-6"> = </span>

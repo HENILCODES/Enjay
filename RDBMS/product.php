@@ -43,7 +43,7 @@
                             <!-- <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore fugit doloribus consectetur.</p> -->
                         </div>
                         <div class="text-end">
-                            <form method="get" action="PHP/buy.php">
+                            <form method="post" action="PHP/buy.php">
                                 <input type="hidden" name="product_id" value="<?php echo $rows['id']; ?>">
                                 <p class="fw-bolder fs-4 text-danger mb-1"><sup>₹</sup> <?php echo $rows['price'] ?></p>
                                 <?php
@@ -52,7 +52,7 @@
                                     <div class="d-flex mt-3 justify-content-end">
                                         <div class="input-group me-3" style="width: 200px;">
                                             <label class="input-group-text">Quantity</label>
-                                            <input type="number" max="10" min="0" value="1" maxlength="10" class="form-control" name="quantity">
+                                            <input type="number" max="10" min="1" value="1" maxlength="10" class="form-control" name="quantity">
                                         </div>
                                         <div class="bo">
                                             <button class="btn btn-success" type="submit" name="buy">Buy</button>

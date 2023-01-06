@@ -28,9 +28,9 @@
                         <th>Name</th>
                         <th>Price</th>
                         <th>Password</th>
-                        <th>Opretion</th>
+                        <th>Action</th>
                     </thead>
-                    <tbody>
+                    <tbody id="Search_table">
                         <?php
                         $select_product = "select * from customers ORDER BY id DESC";
                         $result_select_product = mysqli_query($conn, $select_product);
@@ -41,7 +41,7 @@
                                 <td><?php echo $row['name'] ?></td>
                                 <td><?php echo $row['email'] ?></td>
                                 <td><?php echo $row['password'] ?></td>
-                                <td><a href="Php/deleteRecord.php?CUstomer_id=<?php echo $row['id'] ?>" class="btn btn-danger bi bi-trash"></a></td>
+                                <td><a href="Php/deleteRecord.php?Customer_id=<?php echo $row['id'] ?>" class="btn btn-danger bi bi-trash"></a></td>
                             </tr>
                         <?php
                         }
@@ -53,4 +53,5 @@
     </div>
 </body>
 <script src="../JS/search.js"></script>
+
 </html>

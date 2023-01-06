@@ -63,9 +63,9 @@
                         <th>Name</th>
                         <th>Price</th>
                         <th>Photo</th>
-                        <th>Opretion</th>
+                        <th>Action</th>
                     </thead>
-                    <tbody>
+                    <tbody  id="Search_table">
                         <?php
                         $select_product = "select * from products ORDER BY id DESC";
                         $result_select_product = mysqli_query($conn, $select_product);
