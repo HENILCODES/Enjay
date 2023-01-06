@@ -15,20 +15,16 @@
 //     }
 // }
 
-// if (isset($_REQUEST['Product_id'])) {
-//     $Product_id = $_REQUEST['Product_id'];
-//     $delete_review = "delete from reviews where product_id = $Product_id";
-//     mysqli_query($conn, $delete_review);
+if (isset($_REQUEST['Order_id'])) {
+    include "db.php";
+    $Order_id = $_REQUEST['Order_id'];
 
-//     $delete_order = "delete from customer_products where product_id = $Product_id";
-//     mysqli_query($conn, $delete_order);
-
-//     $delete_query = "delete from products where id = $Product_id";
-//     $execute_delet = mysqli_query($conn, $delete_query);
-//     if ($execute_delet) {
-//         header("location: ../product.php");
-//     }
-// }
+    $delete_query = "delete from customer_products where id = $Order_id";
+    $execute_delet = mysqli_query($conn, $delete_query);
+    if ($execute_delet) {
+        header("location: ../orders.php");
+    }
+}
 
 function deleteRecord($id, $tbName, $Name)
 {

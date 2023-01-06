@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin | Products</title>
+    <title>Admin | Orders</title>
 </head>
 
 <body>
@@ -51,34 +51,40 @@
         <section style="background-color: #eee;" class="shadow rounded ps-5 pe-5">
             <div class="container my-5 py-4">
                 <div class="text-center">
-                    <h2 class="fw-bold">Product Table</h2>
+                    <h2 class="fw-bold">Orders Table</h2>
                 </div>
                 <div class="text-end pb-4 d-flex justify-content-between">
-                    <input type="search" autocomplete="off" class="form-control w-25 me-5" id="search" placeholder="search by id">
-                    <button class="btn btn-success shadow" data-bs-toggle="modal" data-bs-target="#AddProduct">Add</button>
+                    <input type="search" autocomplete="off" class="form-control w-25 me-5" id="search" placeholder="search by order id">
                 </div>
                 <table class="table table-primary text-center table-responsive table-bordered">
                     <thead class="table-borderless table-dark">
-                        <th>ID</th>
-                        <th>Name</th>
+                        <th>order id</th>
+                        <th>customer id</th>
+                        <th>product id</th>
+                        <th>customer name</th>
+                        <th>quantity</th>
+                        <th>product name</th>
                         <th>Price</th>
                         <th>Photo</th>
                         <th>Action</th>
                     </thead>
-                    <tbody id="Search_table">
+                    <tbody  id="Search_table">
                         <?php
-                        $select_product = "select * from products ORDER BY id DESC";
+                        $select_product = "SELECT customer_products.id AS order_id,customer_products.id AS customer_id ,products.id AS product_id,customers.name AS customer_name,customer_products.quantity,products.name AS product_name,products.price AS product_price,products.photo FROM customer_products INNER JOIN customers ON customer_products.customer_id = customers.id INNER JOIN products ON customer_products.product_id = products.id ORDER BY customer_products.id DESC";
                         $result_select_product = mysqli_query($conn, $select_product);
                         while ($row = mysqli_fetch_array($result_select_product)) {
                         ?>
                             <tr>
-                                <td><?php echo $row['id'] ?></td>
-                                <td><?php echo $row['name'] ?></td>
-                                <td><?php echo $row['price'] ?></td>
+                                <td><?php echo $row['order_id'] ?></td>
+                                <td><?php echo $row['customer_id'] ?></td>
+                                <td><?php echo $row['product_id'] ?></td>
+                                <td><?php echo $row['customer_name'] ?></td>
+                                <td><?php echo $row['quantity'] ?></td>
+                                <td><?php echo $row['product_name'] ?></td>
+                                <td><?php echo $row['product_price'] ?></td>
                                 <td> <img src="../upload/<?php echo $row['photo'] ?>" width="80px"> </td>
                                 <td>
-                                    <a href="updateProduct.php?Update_product_id=<?php echo $row['id']; ?>" class="btn btn-success bi bi-pencil me-3"></a>
-                                    <a href="Php/deleteRecord.php?Product_id=<?php echo $row['id']; ?>" class="btn btn-danger bi bi-trash"></a>
+                                    <a href="Php/deleteRecord.php?Order_id=<?php echo $row['order_id'] ?>" class="btn btn-danger bi bi-trash"></a>
                                 </td>
                             </tr>
                         <?php

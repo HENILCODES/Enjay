@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin</title>
+    <title>Admin | Customers</title>
 </head>
 
 <body>
@@ -20,7 +20,7 @@
                     <h2 class="fw-bold">Customer Table</h2>
                 </div>
                 <div class="text-end pb-4 d-flex justify-content-start">
-                    <input type="search" id="search" class="form-control w-25 me-5" placeholder="search by id">
+                    <input type="search" autocomplete="off" id="search" class="form-control w-25 me-5" placeholder="search by id">
                 </div>
                 <table class="table table-primary text-center table-responsive table-bordered">
                     <thead class="table-borderless table-dark">
