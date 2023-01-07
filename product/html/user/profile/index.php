@@ -7,12 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
 </head>
 
 <body>
     <?php
-    session_start();
-    include "../../master/nav.php";
+    // include "../../master/nav.php";
     include "../../../database/connection.php";
 
     $select_profile = "SELECT customers.id,customers.password,customers.name AS Customer_name,customers.email, document.name,document.number
@@ -31,7 +32,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="../../../app/document/add.php" method="POST" autocomplete="off">
+                        <form action="../../../app/document/add.php" method="get" autocomplete="off">
                             <div class="form-outline mb-4">
                                 <label for="document" class="form-label">Proof Type</label>
                                 <select class="form-select form-select-lg" id="document" name="document">
@@ -62,7 +63,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="../../../app/user/update.php" method="POST" autocomplete="off">
+                        <form action="../../../app/user/update.php" method="post" autocomplete="off">
                             <div class="form-outline mb-4">
                                 <label class="form-label">User Name</label>
                                 <input required type="text" value="<?php echo $rowsP['Customer_name']; ?>" name="Name" class="form-control" />
@@ -129,7 +130,7 @@
                                                     <p class="text-muted"><?php echo $rowsP['number'] ?></p>
                                                 </div>
                                                 <div class="col">
-                                                    <a type="button" class="btn btn-danger" href="PHP/documentSend.php?deleteDocument=<?php echo $active_user_id; ?>">
+                                                    <a type="button" class="btn btn-danger" href="../../../app/document/delete.php?deleteDocument=<?php echo $active_user_id; ?>">
                                                         <i class="bi bi-trash "></i>
                                                     </a>
                                                 </div>

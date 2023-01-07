@@ -1,6 +1,9 @@
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+</head>
 <?php
 $active_user_name = "";
-
+session_start();
 if (isset($_SESSION['Active_User'])) {
     $active_user_id = $_SESSION['Active_User'];
 }

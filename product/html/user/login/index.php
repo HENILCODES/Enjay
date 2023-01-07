@@ -11,7 +11,7 @@
 ?> -->
 <body>
     <div class="container">
-        <a href="index.php"> Home </a>
+        <a href="../../home/"> Home </a>
         <div class="w-100 p-4 d-flex justify-content-center pb-4">
             <form action="../../../app/user/login.php" method="POST">
                 <div class="form-outline mb-4">
