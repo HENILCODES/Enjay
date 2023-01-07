@@ -52,10 +52,10 @@
                 </div>
             </div>
         </div>
-        <form class="row g-3 w-50 m-auto" autocomplete="off" action="u.php" method="post" enctype="multipart/form-data">
+        <form class="row g-3 w-50 m-auto" autocomplete="off" method="post" enctype="multipart/form-data">
             <div class="input-group w-25">
                 <spna class="input-group-text justify-content-center"> Id</spna>
-                <input required type="text" class="form-control" value="<?php echo $id; ?>" name="id" placeholder="Product Name">
+                <input required type="text" class="form-control" disabled value="<?php echo $id; ?>" name="id" placeholder="Product Name">
             </div>
             <div class="input-group">
                 <spna class="input-group-text justify-content-center"> Name</spna>
@@ -75,7 +75,27 @@
         </form>
     </div>
 </body>
+<?php
 
+include "Php/db.php";
+if (isset($_REQUEST['updateProduct'])) {
+    $id = $id;
+    $name = $_REQUEST['Product_name'];
+    $price = $_REQUEST['Product_price'];
 
-
+    if ($_FILES['Product_photo']['name'] == "") {
+        $query = "UPDATE products SET name='$name',price=$price WHERE id = $id";
+        echo "E";
+    } else {
+        echo "A";
+        $s_photo = $_FILES['Product_photo']['name'];
+        move_uploaded_file($_FILES['Product_photo']['tmp_name'], "../upload/" . $s_photo);
+        $query = "UPDATE products SET name='$name',price=$price,photo='$s_photo' WHERE id = $id";
+    }
+    $exec_query = mysqli_query($conn, $query);
+    if ($exec_query) {
+        header("location: product.php");
+    }
+}
+?>
 </html>

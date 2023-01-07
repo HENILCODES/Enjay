@@ -54,7 +54,7 @@
                     <h2 class="fw-bold">Orders Table</h2>
                 </div>
                 <div class="text-end pb-4 d-flex justify-content-between">
-                    <input type="search" autocomplete="off" class="form-control w-25 me-5" id="search" placeholder="search by order id">
+                    <input type="search" autocomplete="off" class="form-control w-25 me-5" id="search" placeholder="search">
                 </div>
                 <table class="table table-primary text-center table-responsive table-bordered">
                     <thead class="table-borderless table-dark">

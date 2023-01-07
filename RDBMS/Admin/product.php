@@ -54,7 +54,7 @@
                     <h2 class="fw-bold">Product Table</h2>
                 </div>
                 <div class="text-end pb-4 d-flex justify-content-between">
-                    <input type="search" autocomplete="off" class="form-control w-25 me-5" id="search" placeholder="search by id">
+                    <input type="search" autocomplete="off" class="form-control w-25 me-5" id="search" placeholder="search">
                     <button class="btn btn-success shadow" data-bs-toggle="modal" data-bs-target="#AddProduct">Add</button>
                 </div>
                 <table class="table table-primary text-center table-responsive table-bordered">

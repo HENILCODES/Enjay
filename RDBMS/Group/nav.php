@@ -42,4 +42,5 @@
         </div>
     </div>
 </nav>
+<script src="JS/jquery-3.6.0.js"></script>
 <script src="JS/bootstrap.bundle.min.js"></script>

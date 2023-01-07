@@ -23,3 +23,4 @@ include "Php/security.php";
 </nav>
 
 <script src="../JS/bootstrap.bundle.min.js"></script>
+<script src="../JS/jquery-3.6.0.js"></script>
