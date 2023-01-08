@@ -13,40 +13,6 @@
      include "/opt/lampp/htdocs/PHP/Enjay/product/Admin/database/connection.php";
      include "../master/Nav.php";
     ?>
-    <div class="modal" id="AddProduct">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Add Product</h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container my-3">
-                        <form class="row g-3 m-auto" autocomplete="off" action="Php/addProducts.php" method="post" enctype="multipart/form-data">
-                            <div class="input-group">
-                                <spna class="input-group-text justify-content-center"> Name</spna>
-                                <input required type="text" class="form-control" name="Product_name" placeholder="Product Name">
-                            </div>
-                            <div class="input-group">
-                                <spna class="input-group-text justify-content-center">Price</spna>
-                                <input required type="text" class="form-control" name="Product_price" placeholder="Price">
-                            </div>
-                            <div class="input-group">
-                                <span class="input-group-text justify-content-center">Photo</span>
-                                <input required type="file" class="form-control form-control-lg" name="Product_photo" accept="image/*">
-                            </div>
-                            <div class="mt-5 text-center">
-                                <button class="btn btn-primary" name="AddProducts">Add</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="container">
         <section style="background-color: #eee;" class="shadow rounded ps-5 pe-5">
             <div class="container my-5 py-4">

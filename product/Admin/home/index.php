@@ -21,9 +21,14 @@
     $execute_customer = mysqli_query($conn, $select_customer);
     $total_customer = mysqli_fetch_array($execute_customer);
 
+    $select_document = "SELECT COUNT(id) As Total FROM document";
+    $execute_document = mysqli_query($conn, $select_document);
+    $total_document = mysqli_fetch_array($execute_document);
+
     $select_orders = "SELECT COUNT(id) As Total FROM customer_products";
     $execute_orders = mysqli_query($conn, $select_orders);
     $total_orders = mysqli_fetch_array($execute_orders);
+
     ?>
     <div class="container">
         <section style="background-color: #eee;" class="shadow ps-5 pe-5">
@@ -59,6 +64,16 @@
                             </div>
                             <div class="text-center pb-5 pt-auto">
                                 <p class="btn btn-info fw-bold">Orders</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="../document/" class="col text-decoration-none">
+                        <div class="col bg-primary shadow-lg rounded-4" style="width: 250px;">
+                            <div class="pt-5 pe-5 ps-5">
+                                <p class="d-flex align-items-center text-white justify-content-center fs-1 fw-bolder"><?php echo $total_document['Total']; ?> </p>
+                            </div>
+                            <div class="text-center pb-5 pt-auto">
+                                <p class="btn btn-info fw-bold">Document</p>
                             </div>
                         </div>
                     </a>
