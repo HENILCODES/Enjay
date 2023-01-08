@@ -5,16 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../../../css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-
+    <title>Profile</title>
 </head>
 
 <body>
     <?php
-    // include "../../master/nav.php";
-    include "../../../database/connection.php";
+    include "../../master/nav.php";
 
     $select_profile = "SELECT customers.id,customers.password,customers.name AS Customer_name,customers.email, document.name,document.number
     FROM customers 
@@ -164,6 +160,4 @@
     }
     ?>
 </body>
-<script src="../../../js/bootstrap.bundle.min.js"></script>
-
 </html>
