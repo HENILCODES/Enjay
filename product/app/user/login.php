@@ -1,5 +1,7 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
 <?php
 include "../../database/connection.php";
+
 
 if (isset($_POST['Login'])) {
 
@@ -18,7 +20,7 @@ if (isset($_POST['Login'])) {
     } else {
     ?>
         <div class="alert alert-danger w-50 m-auto text-center" role="alert">
-            record not found. <a href="../login.php" class="alert-link">try again</a>
+            record not found. <a href="../../html/user/login/" class="alert-link">try again</a>
         </div>
 <?php
     }

@@ -16,14 +16,14 @@ if (isset($_POST['Register'])) {
     if (mysqli_num_rows($select_Result) > 0) {
 ?>
         <div class="alert alert-danger w-50 m-auto text-center" role="alert">
-            Email Address already exists. <a href="../register.php" class="alert-link">try again</a>
+            Email Address already exists. <a href="../../html/user/signup/" class="alert-link">try again</a>
         </div>
 <?php
     } else {
         $insertQuery = "insert into customers (name, password, email) values ('$Name','$Password','$Email')";
         $insertResult = mysqli_query($conn, $insertQuery);
         if ($insertResult) {
-            header("location: ../../html/product/");
+            header("location: ../../html/user/login");
         }
     }
 }
