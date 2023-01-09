@@ -22,8 +22,8 @@
     include "../master/nav.php";
 
     $select = "SELECT * FROM products where id=$_REQUEST[q]";
-    $result_select = mysqli_query($conn, $select);
-    $rows = mysqli_fetch_array($result_select);
+    $resultSelect = mysqli_query($conn, $select);
+    $rows = mysqli_fetch_array($resultSelect);
     ?>
     <div class="py-5">
         <div class="container py-5 text-center">
@@ -45,7 +45,7 @@
                                 <input type="hidden" name="product_id" value="<?php echo $rows['id']; ?>">
                                 <p class="fw-bolder fs-4 text-danger mb-1"><sup>₹</sup> <?php echo $rows['price'] ?></p>
                                 <?php
-                                if (isset($_SESSION['Active_User'])) {
+                                if (isset($_SESSION['ActiveUser'])) {
                                 ?>
                                     <div class="d-flex mt-3 justify-content-end">
                                         <div class="input-group me-3" style="width: 200px;">
@@ -68,11 +68,11 @@
                         <div class="container mt-5">
                             <hr>
                             <?php
-                            if (isset($_SESSION['Active_User'])) {
+                            if (isset($_SESSION['ActiveUser'])) {
                             ?>
                                 <form method="post">
                                     <div class="input-group">
-                                        <input type="hidden" name="product_id" value="<?php echo $rows['id']; ?>">
+                                        <input type="hidden" name="productId" value="<?php echo $rows['id']; ?>">
                                         <input autocomplete="off" required type="text" class="form-control" name="reviews" placeholder="type reviewss hear" id="sname">
                                         <button type="submit" class="input-group-text fw-bold justify-content-center" name="send">send</button>
                                     </div>
@@ -86,9 +86,9 @@
                             <span>Reviews</span>
                             <div class="container mt-2" style="height: 250px; overflow-y: auto;">
                                 <?php
-                                $select_reviews = "SELECT reviews.name,customers.name as customer_name from reviews INNER JOIN customers ON reviews.customer_id = customers.id WHERE product_id='$rows[id]' ORDER by reviews.id DESC";
-                                $execute_select_reviews = mysqli_query($conn, $select_reviews);
-                                while ($row = mysqli_fetch_array($execute_select_reviews)) {
+                                $selectReviews = "SELECT reviews.name,customers.name as customer_name from reviews INNER JOIN customers ON reviews.customer_id = customers.id WHERE product_id='$rows[id]' ORDER by reviews.id DESC";
+                                $executeSelectReviews = mysqli_query($conn, $selectReviews);
+                                while ($row = mysqli_fetch_array($executeSelectReviews)) {
                                 ?>
                                     <div class="box ps-2">
                                         <span class="badge bg-secondary"><?php echo $row['customer_name']; ?></span>
@@ -110,11 +110,11 @@
 <?php
 if (isset($_REQUEST['send'])) {
 
-    $U_reviews = $_REQUEST['reviews'];
-    $product_id = $_REQUEST['product_id'];
-    $user = $active_user_id;
+    $reviews = $_REQUEST['reviews'];
+    $productId = $_REQUEST['productId'];
+    $user = $activeUserId;
 
-    $insert = "insert into reviews (name,customer_id,product_id) VALUES ('$U_reviews',$user,$product_id)";
+    $insert = "insert into reviews (name,customer_id,product_id) VALUES ('$reviews',$user,$productId)";
     $exe_query = mysqli_query($conn, $insert);
     if ($exe_query) {
         echo "<meta http-equiv='refresh' content='0'>";

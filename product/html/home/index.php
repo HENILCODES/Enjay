@@ -24,9 +24,9 @@
             <div>
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 flex-wrap">
                     <?php
-                    $select_product = "select * from products ORDER BY id DESC";
-                    $result_select_product = mysqli_query($conn, $select_product);
-                    while ($row = mysqli_fetch_array($result_select_product)) {
+                    $selectProduct = "select * from products ORDER BY id DESC";
+                    $resultSelectProduct = mysqli_query($conn, $selectProduct);
+                    while ($row = mysqli_fetch_array($resultSelectProduct)) {
                     ?>
                         <div class="col mb-5" style="width: 430px;">
                             <a href="../product/index.php?q=<?php echo $row['id'] ?>" class="text-decoration-none">

@@ -20,9 +20,9 @@ if (isset($_POST['Register'])) {
         </div>
 <?php
     } else {
-        $insert_query = "insert into customers (name, password, email) values ('$Name','$Password','$Email')";
-        $insert_result = mysqli_query($conn, $insert_query);
-        if ($insert_result) {
+        $insertQuery = "insert into customers (name, password, email) values ('$Name','$Password','$Email')";
+        $insertResult = mysqli_query($conn, $insertQuery);
+        if ($insertResult) {
             header("location: ../../html/product/");
         }
     }

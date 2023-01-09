@@ -11,7 +11,7 @@
     <div class="container">
         <a href="../home/"> Home </a>
         <div class="w-100 p-4 d-flex justify-content-center pb-4">
-            <form action="../../Admin/app/admin/login.php" method="POST" autocomplete="off">
+            <form action="../../../Admin/app/admin/login.php" method="POST" autocomplete="off">
                 <div class="form-outline mb-4">
                     <label class="form-label" >Admin Name</label>
                     <input required type="text" name="Name" class="form-control" />

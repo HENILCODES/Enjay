@@ -8,11 +8,11 @@ if (isset($_REQUEST['AddProducts'])) {
     $photos = $_FILES['Product_photo']['name'];
 
     if (move_uploaded_file($_FILES['Product_photo']['tmp_name'], "../../../html/upload/" . $photos)) {
-        $inseet_Product = "INSERT INTO products (name, price,photo) VALUES ('$product_name',$price,'$photos')";
-        $execute_insert_product = mysqli_query($conn, $inseet_Product);
+        $inseetProduct = "INSERT INTO products (name, price,photo) VALUES ('$product_name',$price,'$photos')";
+        $executeInsertProduct = mysqli_query($conn, $inseetProduct);
 
-        if ($execute_insert_product) {
-            header("location: ../../product/");
+        if ($executeInsertProduct) {
+            header("location: ../../html/product/");
         }
     }
 }

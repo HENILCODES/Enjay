@@ -1,12 +1,12 @@
 <?php
 include "../../database/connection.php";
 
-if (isset($_REQUEST['review_id'])) {
-    $review_id = $_REQUEST['review_id'];
+if (isset($_REQUEST['reviewId'])) {
+    $reviewId = $_REQUEST['reviewId'];
 
-    $delete_query = "delete from reviews where id = $review_id";
-    $execute_delet = mysqli_query($conn, $delete_query);
-    if ($execute_delet) {
-        header("location: ../../review/");
+    $deleteQuery = "delete from reviews where id = $reviewId";
+    $executeDelet = mysqli_query($conn, $deleteQuery);
+    if ($executeDelet) {
+        header("location: ../../html/review/");
     }
 }

@@ -1,25 +1,19 @@
-<!-- register -->
 <?php
-
 include "../../database/connection.php";
 
-
-
-
-// Log in
 if (isset($_POST['Login'])) {
 
     $Email = $_REQUEST['Email'];
     $Password = $_REQUEST['Password'];
 
     $select = "SELECT * FROM customers WHERE email = '$Email' AND password = '$Password'";
-    $select_Result = mysqli_query($conn, $select);
-    $fetch_row = mysqli_fetch_array($select_Result);
+    $selectResult = mysqli_query($conn, $select);
+    $fetch_row = mysqli_fetch_array($selectResult);
 
-    if (mysqli_num_rows($select_Result) > 0) {
+    if (mysqli_num_rows($selectResult) > 0) {
         session_start();
-        $_SESSION['Active_User'] = $fetch_row['id'];
-        $_SESSION['Active_User_name'] = $fetch_row['name'];
+        $_SESSION['ActiveUser'] = $fetch_row['id'];
+        $_SESSION['ActiveUserName'] = $fetch_row['name'];
         header("location: ../../html/home/");
     } else {
     ?>
@@ -29,5 +23,4 @@ if (isset($_POST['Login'])) {
 <?php
     }
 }
-
 ?>

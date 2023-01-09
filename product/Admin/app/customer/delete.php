@@ -2,20 +2,20 @@
 include "../../database/connection.php";
 
 if (isset($_REQUEST['Customer_id'])) {
-        $customer_id = $_REQUEST['Customer_id'];
+        $customerId = $_REQUEST['Customer_id'];
     
-        $delete_review = "delete from reviews where customer_id = $customer_id";
-        mysqli_query($conn, $delete_review);
+        $deleteReview = "delete from reviews where customer_id = $customerId";
+        mysqli_query($conn, $deleteReview);
     
-        $delete_order = "delete from customer_products where customer_id = $customer_id";
-        mysqli_query($conn, $delete_order);
+        $deleteOrder = "delete from customer_products where customer_id = $customerId";
+        mysqli_query($conn, $deleteOrder);
 
-        $delete_order = "delete from document where customers_id = $customer_id";
-        mysqli_query($conn, $delete_order);
+        $deleteDocument = "delete from document where customers_id = $customerId";
+        mysqli_query($conn, $deleteDocument);
     
-        $delete_query = "delete from customers where id = $customer_id";
-        $execute_delet = mysqli_query($conn, $delete_query);
-        if ($execute_delet) {
-            header("location: ../../customer/");
+        $deleteQuery = "delete from customers where id = $customerId";
+        $executeDelet = mysqli_query($conn, $deleteQuery);
+        if ($executeDelet) {
+            header("location: ../../html/customer/");
         }
     }

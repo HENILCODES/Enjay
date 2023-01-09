@@ -24,7 +24,7 @@ include "/opt/lampp/htdocs/PHP/Enjay/product/database/connection.php";
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <?php
-                        if (isset($_SESSION['Active_User'])) {
+                        if (isset($_SESSION['ActiveUser'])) {
                         ?>
                             <li class="nav-item"> <a href="../user/profile/" class="dropdown-item"> Profile</a> </li>
                             <li class="nav-item">

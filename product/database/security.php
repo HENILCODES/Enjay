@@ -1,7 +1,6 @@
 <?php
-// session_start();
 
-if (!$_SESSION['Active_User']) {
+if (!$_SESSION['ActiveUser']) {
     header("location: ../user/login/");
 }
 ?>

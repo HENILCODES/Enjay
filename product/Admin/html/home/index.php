@@ -10,7 +10,7 @@
 
 <body>
     <?php
-    include "../database/connection.php";
+    include "../../database/connection.php";
     include "../master/Nav.php";
 
     $select_product = "SELECT COUNT(id) As Total FROM products";
@@ -42,7 +42,7 @@
         <section style="background-color: #eee;" class="shadow ps-5 pe-5">
             <div class="container my-5 py-5">
                 <div class="pb-5">
-                    <h4> <span class="badge bg-success">Admin : </span> <b><?php echo $_SESSION['Active_Admin_name']; ?></b></h4>
+                    <h4> <span class="badge bg-success">Admin : </span> <b><?php echo $_SESSION['ActiveAdminName']; ?></b></h4>
                 </div>
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 flex-wrap justify-content-evenly">
                     <a href="../product/" class="col text-decoration-none mb-5">

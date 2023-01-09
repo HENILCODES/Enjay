@@ -1,11 +1,11 @@
 <?php
-$active_user_name = "";
+$activeUserName = "";
 session_start();
-if (isset($_SESSION['Active_User'])) {
-    $active_user_id = $_SESSION['Active_User'];
+if (isset($_SESSION['ActiveUser'])) {
+    $activeUserId = $_SESSION['ActiveUser'];
 }
-if (isset($_SESSION['Active_User_name'])) {
-    $active_user_name = $_SESSION['Active_User_name'];
+if (isset($_SESSION['ActiveUserName'])) {
+    $activeUserName = $_SESSION['ActiveUserName'];
 }
 $conn = mysqli_connect("localhost", "root", "", "store");
 if (!$conn) {

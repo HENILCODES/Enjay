@@ -44,7 +44,7 @@
                                 <td><?php echo $row['customers_id'] ?></td>
                                 <td><?php echo $row['customer_name'] ?></td>
                                 <td>
-                                    <a href="../app/document/delete.php?Document_id=<?php echo $row['id'] ?>" class="btn btn-danger bi bi-trash"></a>
+                                    <a href="../../app/document/delete.php?Document_id=<?php echo $row['id'] ?>" class="btn btn-danger bi bi-trash"></a>
                                 </td>
                             </tr>
                         <?php
@@ -56,6 +56,4 @@
         </section>
     </div>
 </body>
-<script src="../js/search.js"></script>
-
 </html>

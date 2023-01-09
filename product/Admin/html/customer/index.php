@@ -40,7 +40,7 @@
                                 <td><?php echo $row['name'] ?></td>
                                 <td><?php echo $row['email'] ?></td>
                                 <td><?php echo $row['password'] ?></td>
-                                <td><a href="../app/customer/delete.php?Customer_id=<?php echo $row['id'] ?>" class="btn btn-danger bi bi-trash"></a></td>
+                                <td><a href="../../app/customer/delete.php?Customer_id=<?php echo $row['id'] ?>" class="btn btn-danger bi bi-trash"></a></td>
                             </tr>
                         <?php
                         }
@@ -51,6 +51,5 @@
         </section>
     </div>
 </body>
-<script src="../js/search.js"></script>
 
 </html>

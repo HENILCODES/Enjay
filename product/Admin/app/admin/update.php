@@ -69,9 +69,9 @@ if (isset($_REQUEST['updateAdmin'])) {
     $password = $_REQUEST['AdminPassword'];
 
     $query = "UPDATE admin SET name='$name',password='$password' WHERE id = $id";
-    $exec_query = mysqli_query($conn, $query);
-    if ($exec_query) {
-        header("location: ../../admin/");
+    $execQuery = mysqli_query($conn, $query);
+    if ($execQuery) {
+        header("location: ../../html/admin/");
     }
 }
 ?>

@@ -10,6 +10,6 @@ if (isset($_REQUEST['AddAdmin'])) {
         $execute = mysqli_query($conn, $inseet);
 
         if ($execute) {
-            header("location: ../../admin/");
+            header("location: ../../html/admin/");
         }
     }

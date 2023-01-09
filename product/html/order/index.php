@@ -31,14 +31,14 @@
                         <div class="d-flex justify-content-between align-items-center mb-4">
                             <h3 class="fw-normal mb-0 text-black">Shopping Cart</h3>
                             <div>
-                                Customer id : <?php echo $active_user_id; ?>
+                                Customer id : <?php echo $activeUserId; ?>
                             </div>
                         </div>
                         <?php
-                        $seletc_order = "select customers.id AS customer_id,products.photo ,customer_products.quantity,customer_products.id,customer_products.product_id,products.name AS product_name , products.price AS price from customers INNER JOIN customer_products ON customer_products.customer_id=customers.id INNER JOIN products ON products.id = customer_products.product_id where customers.id = $active_user_id";
-                        $execute_select_order = mysqli_query($conn, $seletc_order);
+                        $seletcOrder = "select customers.id AS customer_id,products.photo ,customer_products.quantity,customer_products.id,customer_products.product_id,products.name AS product_name , products.price AS price from customers INNER JOIN customer_products ON customer_products.customer_id=customers.id INNER JOIN products ON products.id = customer_products.product_id where customers.id = $activeUserId";
+                        $executeSelectOrder = mysqli_query($conn, $seletcOrder);
 
-                        while ($rows = mysqli_fetch_array($execute_select_order)) {
+                        while ($rows = mysqli_fetch_array($executeSelectOrder)) {
                         ?>
                             <div class="card rounded-3 mb-4">
                                 <div class="card-body p-4">
@@ -83,12 +83,12 @@
 </body>
 <?php
 if (isset($_REQUEST['quantity'])) {
-    $product_id = $_REQUEST['pid'];
-    $customer_id = $active_user_id;
+    $productId = $_REQUEST['pid'];
+    $customer_id = $activeUserId;
     $quantity = $_REQUEST['quantity'];
-    $insert_order = "UPDATE customer_products SET quantity=$quantity WHERE product_id =$product_id";
-    $execut_insert = mysqli_query($conn, $insert_order);
-    if ($execut_insert) {
+    $insertOrder = "UPDATE customer_products SET quantity=$quantity WHERE product_id =$productId";
+    $executInsert = mysqli_query($conn, $insertOrder);
+    if ($executInsert) {
         echo "<meta http-equiv='refresh' content='0'>";
     }
 }

@@ -12,12 +12,12 @@
     <?php
     include "../../master/nav.php";
 
-    $select_profile = "SELECT customers.id,customers.password,customers.name AS Customer_name,customers.email, document.name,document.number
+    $selectProfile = "SELECT customers.id,customers.password,customers.name AS Customer_name,customers.email, document.name,document.number
     FROM customers 
         LEFT JOIN document ON document.customers_id = customers.id
-    WHERE customers.id = $active_user_id";
-    $execut_select_profile = mysqli_query($conn, $select_profile);
-    $rowsP = mysqli_fetch_array($execut_select_profile);
+    WHERE customers.id = $activeUserId";
+    $executSelectProfile = mysqli_query($conn, $selectProfile);
+    $rowsP = mysqli_fetch_array($executSelectProfile);
     if (!empty($rowsP)) {
     ?>
         <div class="modal" id="deleteDocument">
@@ -109,12 +109,12 @@
                                         <h5 class="text-danger">Document Details</h5>
                                         <hr class="mt-0 mb-4">
                                         <?php
-                                        $select_document = "select * from document where customers_id= $active_user_id";
-                                        $execut_quer = mysqli_query($conn, $select_document);
-                                        $result_execu_quer = mysqli_fetch_array($execut_quer);
+                                        $selectDocument = "select * from document where customers_id= $activeUserId";
+                                        $executQuery = mysqli_query($conn, $selectDocument);
+                                        $resultExecuQuer = mysqli_fetch_array($executQuery);
                                         ?>
                                         <?php
-                                        if (!empty($result_execu_quer)) {
+                                        if (!empty($resultExecuQuer)) {
                                         ?>
                                             <div class="row pt-1">
                                                 <div class="col-6 mb-3">
@@ -136,7 +136,7 @@
                                         ?>
                                         <div class="text-center">
                                             <?php
-                                            if (empty($result_execu_quer)) {
+                                            if (empty($resultExecuQuer)) {
                                             ?>
                                                 <h5 class="card-title">No Data Found</h5>
                                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#deleteDocument">

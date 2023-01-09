@@ -9,13 +9,13 @@ if (isset($_POST['Login'])) {
     $Password = $_REQUEST['Password'];
 
     $select = "SELECT * FROM admin WHERE name = '$name' AND password = '$Password'";
-    $select_Result = mysqli_query($conn, $select);
-    $fetch_row = mysqli_fetch_array($select_Result);
+    $selectResult = mysqli_query($conn, $select);
+    $fetchRow = mysqli_fetch_array($selectResult);
 
-    if (mysqli_num_rows($select_Result) > 0) {
+    if (mysqli_num_rows($selectResult) > 0) {
         session_start();
-        $_SESSION['Active_Admin_name'] = $fetch_row['name'];
-        header("location: ../../home/");
+        $_SESSION['ActiveAdminName'] = $fetchRow['name'];
+        header("location: ../../html/home/");
     } else {
 ?>
         <h1 class="alert alert-danger w-50 m-auto text-center" role="alert">
