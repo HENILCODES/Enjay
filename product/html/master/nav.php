@@ -28,7 +28,7 @@ include "/opt/lampp/htdocs/PHP/Enjay/product/database/connection.php";
                         ?>
                             <li class="nav-item"> <a href="../user/profile/" class="dropdown-item"> Profile</a> </li>
                             <li class="nav-item">
-                                <a href="../../../app/user/logout.php?logout=true" class="dropdown-item"> Log Out <i class="bi bi-box-arrow-right text-danger"></i></a>
+                                <a href="../../app/user/logout.php?logout=true" class="dropdown-item"> Log Out <i class="bi bi-box-arrow-right text-danger"></i></a>
                             </li>
                         <?php
                         } else {

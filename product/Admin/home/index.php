@@ -56,7 +56,7 @@
                         </div>
                     </a>
                     <a href="../customer/" class="col text-decoration-none mb-5">
-                        <div class="col bg-primary shadow-lg rounded-4" style="width: 250px;">
+                        <div class="col bg-primary shadow rounded-4" style="width: 250px;">
                             <div class="pt-5 pe-5 ps-5">
                                 <p class="d-flex align-items-center text-white justify-content-center fs-1 fw-bolder"><?php echo $total_customer['Total']; ?> </p>
                             </div>
