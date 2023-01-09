@@ -1,6 +1,5 @@
 <link rel="stylesheet" href="../CSS/bootstrap.min.css">
 <?php
-session_start();
 include "../../database/connection.php";
 
 
