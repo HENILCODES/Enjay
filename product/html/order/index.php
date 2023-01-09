@@ -20,6 +20,7 @@
 <body>
     <?php
     include "../master/nav.php";
+    include "../../database/security.php";
     ?>
     <div class="container my-3">
         <section class="h-100" style="background-color: #eee;">
