@@ -37,7 +37,7 @@
                     </thead>
                     <tbody  id="Search_table">
                         <?php
-                        $selectProduct = "SELECT customer_products.id AS order_id,customer_products.id AS customer_id ,products.id AS product_id,customers.name AS customer_name,customer_products.quantity,products.name AS product_name,products.price AS product_price,products.photo FROM customer_products INNER JOIN customers ON customer_products.customer_id = customers.id INNER JOIN products ON customer_products.product_id = products.id ORDER BY customer_products.id DESC";
+                        $selectProduct = "SELECT customer_products.id AS order_id,customers.id AS customer_id ,products.id AS product_id,customers.name AS customer_name,customer_products.quantity,products.name AS product_name,products.price AS product_price,products.photo FROM customer_products INNER JOIN customers ON customer_products.customer_id = customers.id INNER JOIN products ON customer_products.product_id = products.id ORDER BY customer_products.id DESC";
                         $resultSelectProduct = mysqli_query($conn, $selectProduct);
                         while ($row = mysqli_fetch_array($resultSelectProduct)) {
                         ?>
