@@ -30,7 +30,7 @@
             <div class="row row-cols-lg-2 row-col-md-2 row-cols-mb-1">
                 <div class="col col-lg-4 text-start">
                     <span class="badge mb-3 bg-primary"><?php echo $rows['id'] ?></span><br>
-                    <img class="col-10" src="../../storage/upload/<?php echo $rows['photo'] ?>" alt="">
+                    <img class="col-10" src="/product/storage/upload/<?php echo $rows['photo'] ?>" alt="">
                 </div>
                 <div class="col">
                     <div class="container text-start">

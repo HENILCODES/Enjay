@@ -10,7 +10,7 @@
 
 <body>
     <?php
-        include "/opt/lampp/htdocs/PHP/Enjay/product/database/connection.php";
+        include "/product/database/connection.php";
         include "../master/Nav.php";
     ?>
     <div class="modal" id="AddAdmin">

@@ -9,5 +9,7 @@ if (isset($_SESSION['ActiveUserName'])) {
 }
 $conn = mysqli_connect("localhost", "root", "", "store");
 if (!$conn) {
-    die("Data Base error");
+    echo "Not Connect";
+}else{
+    echo "A";
 }
