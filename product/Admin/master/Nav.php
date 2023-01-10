@@ -15,7 +15,7 @@ include "../../database/AdminSecurity.php";
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ps-2 ">
                 <li class="nav-item dropdown pe-2">
-                    <a href="../../app/admin/logout.php?logout=true" class="btn btn-danger">Log Out</a>
+                    <a href="../../app/user/logout.php?logoutAdmin=true" class="btn btn-danger">Log Out</a>
                 </li>
             </ul>
         </div>

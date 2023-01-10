@@ -7,7 +7,7 @@ if (isset($_REQUEST['Product_id'])) {
     $deleteReview = "delete from reviews where product_id = $ProductId";
     mysqli_query($conn, $deleteReview);
 
-    $deleteOrder = "delete from customer_products where product_id = $ProductId";
+    $deleteOrder = "delete from users_products where product_id = $ProductId";
     mysqli_query($conn, $deleteOrder);
 
     $deleteQuery = "delete from products where id = $ProductId";

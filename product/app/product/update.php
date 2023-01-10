@@ -43,7 +43,7 @@
         </div>
         <div class="container">
             <div class="card rounded float-end w-25">
-                <img class="card-img-top" src="../../html/upload/<?php echo $photo; ?>" alt="<?php echo $photo; ?>">
+                <img class="card-img-top" src="../../storage/upload/<?php echo $photo; ?>" alt="<?php echo $photo; ?>">
                 <div class="card-body">
                     <label for="photo" class="btn btn-primary">Change</label>
                 </div>
@@ -83,7 +83,7 @@ if (isset($_REQUEST['updateProduct'])) {
         $query = "UPDATE products SET name='$name',price=$price WHERE id = $id";
     } else {
         $PrductPhoto = $_FILES['Product_photo']['name'];
-        move_uploaded_file($_FILES['Product_photo']['tmp_name'], "../upload/" . $PrductPhoto);
+        move_uploaded_file($_FILES['Product_photo']['tmp_name'], "../../storage/upload/" . $PrductPhoto);
         $query = "UPDATE products SET name='$name',price=$price,photo='$PrductPhoto' WHERE id = $id";
     }
     $exec_query = mysqli_query($conn, $query);

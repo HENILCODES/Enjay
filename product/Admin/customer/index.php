@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin | Customers</title>
+    <title>Admin | users</title>
 </head>
 
 <body>
@@ -33,7 +33,7 @@
                     </thead>
                     <tbody id="Search_table">
                         <?php
-                        $select_product = "select * from customers ORDER BY id DESC";
+                        $select_product = "select * from users where type='customer' ORDER BY id DESC";
                         $result_select_product = mysqli_query($conn, $select_product);
                         while ($row = mysqli_fetch_array($result_select_product)) {
                         ?>
@@ -42,7 +42,7 @@
                                 <td><?php echo $row['name'] ?></td>
                                 <td><?php echo $row['email'] ?></td>
                                 <td><?php echo $row['password'] ?></td>
-                                <td><a href="../../app/customer/delete.php?Customer_id=<?php echo $row['id'] ?>" class="btn btn-danger bi bi-trash"></a></td>
+                                <td><a href="../../app/customer/delete.php?users_id=<?php echo $row['id'] ?>" class="btn btn-danger bi bi-trash"></a></td>
                             </tr>
                         <?php
                         }

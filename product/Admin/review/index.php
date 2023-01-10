@@ -35,18 +35,18 @@
                     </thead>
                     <tbody id="Search_table">
                         <?php
-                        $selectProduct = "SELECT reviews.id AS review_id ,reviews.name AS reviews,reviews.customer_id,customers.name AS customer_name,reviews.product_id,products.name AS product_name,products.photo FROM reviews INNER JOIN products on reviews.product_id=products.id INNER JOIN customers ON reviews.customer_id = customers.id ORDER BY reviews.id DESC";
+                        $selectProduct = "SELECT reviews.id AS review_id ,reviews.name AS reviews,reviews.users_id,users.name AS customer_name,reviews.product_id,products.name AS product_name,products.photo FROM reviews INNER JOIN products on reviews.product_id=products.id INNER JOIN users ON reviews.users_id = users.id ORDER BY reviews.id DESC";
                         $resultSelectProduct = mysqli_query($conn, $selectProduct);
                         while ($row = mysqli_fetch_array($resultSelectProduct)) {
                         ?>
                             <tr>
                                 <td><?php echo $row['review_id'] ?></td>
                                 <td><?php echo $row['reviews'] ?></td>
-                                <td><?php echo $row['customer_id'] ?></td>
+                                <td><?php echo $row['users_id'] ?></td>
                                 <td><?php echo $row['customer_name'] ?></td>
                                 <td><?php echo $row['product_id'] ?></td>
                                 <td><?php echo $row['product_name'] ?></td>
-                                <td> <img src="../../html/upload/<?php echo $row['photo'] ?>" width="80px"> </td>
+                                <td> <img src="../../storage/upload/<?php echo $row['photo'] ?>" width="80px"> </td>
                                 <td>
                                     <a href="../../app/review/delete.php?reviewId=<?php echo $row['review_id'] ?>" class="btn btn-danger bi bi-trash"></a>
                                 </td>

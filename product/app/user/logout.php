@@ -7,4 +7,8 @@ if(isset($_REQUEST['logout'])){
     header("location: ../../html/user/login/");
 
 }
+if(isset($_REQUEST['logoutAdmin'])){
+    unset($_SESSION['ActiveAdminName']);
+    header('location: ../../html/user/login/');
+}
 ?>

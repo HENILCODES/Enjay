@@ -12,10 +12,10 @@
     <?php
     include "../../master/nav.php";
 
-    $selectProfile = "SELECT customers.id,customers.password,customers.name AS Customer_name,customers.email, document.name,document.number
-    FROM customers 
-        LEFT JOIN document ON document.customers_id = customers.id
-    WHERE customers.id = $activeUserId";
+    $selectProfile = "SELECT users.id,users.password,users.name AS Customer_name,users.email, document.name,document.number
+    FROM users 
+        LEFT JOIN document ON document.users_id = users.id
+    WHERE users.id = $activeUserId";
     $executSelectProfile = mysqli_query($conn, $selectProfile);
     $rowsP = mysqli_fetch_array($executSelectProfile);
     if (!empty($rowsP)) {
@@ -84,7 +84,7 @@
                         <div class="card mb-3 shadow" style="border-radius: .5rem;">
                             <div class="row g-0">
                                 <div class="col-md-4 gradient-custom text-center text-black" style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
-                                    <img src="../../upload/download.png" alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
+                                    <img src="../../../storage/upload/download.png" alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
                                     <h2><?php echo $rowsP['Customer_name']; ?></h2>
                                 </div>
                                 <div class="col-md-8">
@@ -109,7 +109,7 @@
                                         <h5 class="text-danger">Document Details</h5>
                                         <hr class="mt-0 mb-4">
                                         <?php
-                                        $selectDocument = "select * from document where customers_id= $activeUserId";
+                                        $selectDocument = "select * from document where users_id= $activeUserId";
                                         $executQuery = mysqli_query($conn, $selectDocument);
                                         $resultExecuQuer = mysqli_fetch_array($executQuery);
                                         ?>

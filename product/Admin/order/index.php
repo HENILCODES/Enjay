@@ -37,19 +37,19 @@
                     </thead>
                     <tbody  id="Search_table">
                         <?php
-                        $selectProduct = "SELECT customer_products.id AS order_id,customers.id AS customer_id ,products.id AS product_id,customers.name AS customer_name,customer_products.quantity,products.name AS product_name,products.price AS product_price,products.photo FROM customer_products INNER JOIN customers ON customer_products.customer_id = customers.id INNER JOIN products ON customer_products.product_id = products.id ORDER BY customer_products.id DESC";
+                        $selectProduct = "SELECT users_products.id AS order_id,users.id AS users_id ,products.id AS product_id,users.name AS customer_name,users_products.quantity,products.name AS product_name,products.price AS product_price,products.photo FROM users_products INNER JOIN users ON users_products.users_id = users.id INNER JOIN products ON users_products.product_id = products.id ORDER BY users_products.id DESC";
                         $resultSelectProduct = mysqli_query($conn, $selectProduct);
                         while ($row = mysqli_fetch_array($resultSelectProduct)) {
                         ?>
                             <tr>
                                 <td><?php echo $row['order_id'] ?></td>
-                                <td><?php echo $row['customer_id'] ?></td>
+                                <td><?php echo $row['users_id'] ?></td>
                                 <td><?php echo $row['product_id'] ?></td>
                                 <td><?php echo $row['customer_name'] ?></td>
                                 <td><?php echo $row['quantity'] ?></td>
                                 <td><?php echo $row['product_name'] ?></td>
                                 <td><?php echo $row['product_price'] ?></td>
-                                <td> <img src="../../html/upload/<?php echo $row['photo'] ?>" width="80px"> </td>
+                                <td> <img src="../../storage/upload/<?php echo $row['photo'] ?>" width="80px"> </td>
                                 <td>
                                     <a href="../../app/order/delete.php?Order_id=<?php echo $row['order_id'] ?>" class="btn btn-danger bi bi-trash"></a>
                                 </td>

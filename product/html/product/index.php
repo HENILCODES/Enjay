@@ -30,7 +30,7 @@
             <div class="row row-cols-lg-2 row-col-md-2 row-cols-mb-1">
                 <div class="col col-lg-4 text-start">
                     <span class="badge mb-3 bg-primary"><?php echo $rows['id'] ?></span><br>
-                    <img class="col-10" src="../upload/<?php echo $rows['photo'] ?>" alt="">
+                    <img class="col-10" src="../../storage/upload/<?php echo $rows['photo'] ?>" alt="">
                 </div>
                 <div class="col">
                     <div class="container text-start">
@@ -86,7 +86,7 @@
                             <span>Reviews</span>
                             <div class="container mt-2" style="height: 250px; overflow-y: auto;">
                                 <?php
-                                $selectReviews = "SELECT reviews.name,customers.name as customer_name from reviews INNER JOIN customers ON reviews.customer_id = customers.id WHERE product_id='$rows[id]' ORDER by reviews.id DESC";
+                                $selectReviews = "SELECT reviews.name,users.name as customer_name from reviews INNER JOIN users ON reviews.users_id = users.id WHERE product_id='$rows[id]' ORDER by reviews.id DESC";
                                 $executeSelectReviews = mysqli_query($conn, $selectReviews);
                                 while ($row = mysqli_fetch_array($executeSelectReviews)) {
                                 ?>
@@ -114,7 +114,7 @@ if (isset($_REQUEST['send'])) {
     $productId = $_REQUEST['productId'];
     $user = $activeUserId;
 
-    $insert = "insert into reviews (name,customer_id,product_id) VALUES ('$reviews',$user,$productId)";
+    $insert = "insert into reviews (name,users_id,product_id) VALUES ('$reviews',$user,$productId)";
     $exe_query = mysqli_query($conn, $insert);
     if ($exe_query) {
         echo "<meta http-equiv='refresh' content='0'>";

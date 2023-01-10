@@ -34,7 +34,7 @@
                     </thead>
                     <tbody id="Search_table">
                         <?php
-                        $select_product = "SELECT `customers`.`name` as customer_name,customers.email,`document`.* FROM `customers`RIGHT JOIN `document` ON `document`.`customers_id` = `customers`.`id` order by id desc;";
+                        $select_product = "SELECT `users`.`name` as customer_name,users.email,`document`.* FROM `users`RIGHT JOIN `document` ON `document`.`users_id` = `users`.`id` order by id desc;";
                         $result_select_product = mysqli_query($conn, $select_product);
                         while ($row = mysqli_fetch_array($result_select_product)) {
                         ?>
@@ -42,7 +42,7 @@
                                 <td><?php echo $row['id'] ?></td>
                                 <td><?php echo $row['name'] ?></td>
                                 <td><?php echo $row['number'] ?></td>
-                                <td><?php echo $row['customers_id'] ?></td>
+                                <td><?php echo $row['users_id'] ?></td>
                                 <td><?php echo $row['customer_name'] ?></td>
                                 <td><?php echo $row['email'] ?></td>
                                 <td>

@@ -6,9 +6,6 @@
     <title> Log in </title>
     <link rel="stylesheet" href="../../../css/bootstrap.min.css">
 </head>
-<!-- <?php
-    include "../../master/nav.php";
-?> -->
 <body>
     <div class="container">
         <a href="../../home/"> Home </a>

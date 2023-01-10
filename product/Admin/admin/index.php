@@ -22,10 +22,14 @@
                 </div>
                 <div class="modal-body">
                     <div class="container my-3">
-                        <form class="row g-3 m-auto" autocomplete="off" action="../../app/admin/insert.php" method="post" enctype="multipart/form-data">
+                        <form class="row g-3 m-auto" autocomplete="off" action="../../app/user/signup.php" method="post" enctype="multipart/form-data">
                             <div class="input-group">
                                 <spna class="input-group-text justify-content-center"> Name</spna>
                                 <input required type="text" class="form-control" name="name" placeholder="enter name">
+                            </div>
+                            <div class="input-group">
+                                <spna class="input-group-text justify-content-center"> email</spna>
+                                <input required type="email" class="form-control" name="email" placeholder="enter email">
                             </div>
                             <div class="input-group">
                                 <spna class="input-group-text justify-content-center">Password</spna>
@@ -57,22 +61,24 @@
                     <thead class="table-borderless table-dark">
                         <th>ID</th>
                         <th>Name</th>
+                        <th>email</th>
                         <th>Password</th>
                         <th>Action</th>
                     </thead>
                     <tbody id="Search_table">
                         <?php
-                        $select_product = "select * from admin ORDER BY id DESC";
+                        $select_product = "select * from users where type='admin' ORDER BY id DESC ";
                         $result_select_product = mysqli_query($conn, $select_product);
                         while ($row = mysqli_fetch_array($result_select_product)) {
                         ?>
                             <tr>
                                 <td><?php echo $row['id'] ?></td>
                                 <td><?php echo $row['name'] ?></td>
+                                <td><?php echo $row['email'] ?></td>
                                 <td><?php echo $row['password'] ?></td>
                                 <td>
-                                    <a href="../../app/admin/update.php?Admin_id=<?php echo $row['id']; ?>" class="btn btn-success bi bi-pencil me-3"></a>
-                                    <a href="../../app/admin/delete.php?Admin_id=<?php echo $row['id']; ?>" class="btn btn-danger bi bi-trash"></a>
+                                    <a href="../../app/user/update.php?Admin_id=<?php echo $row['id']; ?>" class="btn btn-success bi bi-pencil me-3"></a>
+                                    <a href="../../app/user/delete.php?Admin_id=<?php echo $row['id']; ?>" class="btn btn-danger bi bi-trash"></a>
                                 </td>
                             </tr>
                         <?php

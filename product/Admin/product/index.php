@@ -75,7 +75,7 @@
                                 <td><?php echo $row['id'] ?></td>
                                 <td><?php echo $row['name'] ?></td>
                                 <td><?php echo $row['price'] ?></td>
-                                <td> <img src="../../html/upload/<?php echo $row['photo'] ?>" width="80px"> </td>
+                                <td> <img src="../../storage/upload/<?php echo $row['photo'] ?>" width="80px"> </td>
                                 <td>
                                     <a href="../../app/product/update.php?Update_product_id=<?php echo $row['id']; ?>" class="btn btn-success bi bi-pencil me-3"></a>
                                     <a href="../../app/product/delete.php?Product_id=<?php echo $row['id']; ?>" class="btn btn-danger bi bi-trash"></a>

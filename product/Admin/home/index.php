@@ -18,7 +18,7 @@
     $execute_product = mysqli_query($conn, $select_product);
     $total_product = mysqli_fetch_array($execute_product);
 
-    $select_customer = "SELECT COUNT(id) As Total FROM customers";
+    $select_customer = "SELECT COUNT(id) As Total FROM users";
     $execute_customer = mysqli_query($conn, $select_customer);
     $total_customer = mysqli_fetch_array($execute_customer);
 
@@ -26,7 +26,7 @@
     $execute_document = mysqli_query($conn, $select_document);
     $total_document = mysqli_fetch_array($execute_document);
 
-    $select_admin = "SELECT COUNT(id) As Total FROM admin";
+    $select_admin = "SELECT COUNT(id) As Total FROM users where type='admin'";
     $execute_admin = mysqli_query($conn, $select_admin);
     $total_admin = mysqli_fetch_array($execute_admin);
 
@@ -34,7 +34,7 @@
     $execute_review = mysqli_query($conn, $select_review);
     $total_review = mysqli_fetch_array($execute_review);
 
-    $select_orders = "SELECT COUNT(id) As Total FROM customer_products";
+    $select_orders = "SELECT COUNT(id) As Total FROM users_products";
     $execute_orders = mysqli_query($conn, $select_orders);
     $total_orders = mysqli_fetch_array($execute_orders);
 

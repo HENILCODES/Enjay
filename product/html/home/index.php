@@ -32,7 +32,7 @@
                         <div class="col mb-5" style="width: 430px;">
                             <a href="../product/index.php?q=<?php echo $row['id'] ?>" class="text-decoration-none">
                                 <div class="card text-black shadow-lg rounded-5">
-                                    <img class="card-img-top" style="height: 300px;" src="../upload/<?php echo $row['photo'] ?>" alt="">
+                                    <img class="card-img-top" style="height: 300px;" src="../../storage/upload/<?php echo $row['photo'] ?>" alt="">
                                     <div class="card-body d-flex justify-content-between" style="height: 100px;">
                                         <div>
                                             <div class="card-title"> 
